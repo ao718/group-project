@@ -36,8 +36,8 @@ class InventoryProvider extends Component {
             .catch(err => console.log(err))
     }
 
-    getAllQueries = (gender, department, size, price) => {
-        axios.get(`/inventory/filterall?gender=${gender}&department=${department}&size=${size}&price=${price}`)
+    getAllQueries = (gender, department, size) => {
+        axios.get(`/inventory/filterall?gender=${gender}&department=${department}&size=${size}`)
             .then(res => this.setState({inventory: res.data}))
             .catch(err => console.log(err))
     }
@@ -46,8 +46,10 @@ class InventoryProvider extends Component {
             return(
                 <InventoryContext.Provider value={{
                     getMenInventory: this.getMenInventory,
+                    getWomenInventory: this.getWomenInventory,
                     inventory:this.state.inventory,
-                    getByBrand: this.getByBrand
+                    getByBrand: this.getByBrand,
+                    getAllQueries: this.getAllQueries
                 }}>
                     {this.props.children}
                 </InventoryContext.Provider>
