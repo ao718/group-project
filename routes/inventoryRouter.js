@@ -29,10 +29,23 @@ inventoryRouter.get("/department", async (req, res, next) => {
  
  })
 
- inventoryRouter.get("/", async (req, res, next) => {
+ inventoryRouter.get("/price", async (req, res, next) => {
     
     try {
         const items = await Item.find({ price: req.query.price })
+        return res.status(200).send(items)
+    }
+    catch(err){
+        res.status(500)
+        return next(err)
+    }
+ 
+ })
+
+ inventoryRouter.get("/brand", async (req, res, next) => {
+    
+    try {
+        const items = await Item.find({ brand: req.query.brand })
         return res.status(200).send(items)
     }
     catch(err){
