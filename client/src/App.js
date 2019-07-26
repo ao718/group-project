@@ -4,6 +4,7 @@ import Home from "./components/Home.js"
 // import Footer from "./components/Footer.js"
 import Men from "./components/Men.js"
 import Header from "./components/Header.js"
+import Results from "./components/Results.js"
 
 const App = props => {
     return (
@@ -12,6 +13,7 @@ const App = props => {
         <Switch>
             <Route exact path="/" render = {routerProps => <Home {...routerProps}/> }/>
             <Route path="/men" render = {routerProps => <Men {...routerProps} /> } />
+            <Route path="/results" render = {routerProps => <Results {...routerProps} />} />
         </Switch>
        
         </>
