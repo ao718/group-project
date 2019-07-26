@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+}
+
+.footer{
+    background-image: url('../pics/flower.jpg');
+    height: 40vh;
+    width: 100vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+.form {
+    height: 20px;
+}
+
+.input {
+    height: 20px;
+    
+    
+}
+
+#subscribe {
+    
+
+
+}
+
+
+
+/* @media only screen and (min-width: 768px) {
+
+} */
