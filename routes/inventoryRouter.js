@@ -80,8 +80,9 @@ inventoryRouter.get("/department", async (req, res, next) => {
      try {
          const items = await Item.find({gender: req.query.gender, 
             department: req.query.department,
-            size: req.query.size,
-            price: req.query.price})
+            clothingSize: req.query.size
+            })
+            return res.status(200).send(items)
      }
      catch(err){
          res.status(500)

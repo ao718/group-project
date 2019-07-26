@@ -22,8 +22,8 @@ const itemSchema = new Schema ({
     },
     price: {
         type: Number,
-        required: true,
-        enum:[`$0-25`, `$25-50`, `$50-75`, `$75-100`, `$100-200`]
+        required: true
+       
     },
     imgUrl: {
         type: String,
