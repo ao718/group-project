@@ -1,11 +1,15 @@
 * {
     margin: 0;
+    padding: 0;
 }
 
 .footer{
     background-image: url('../pics/flower.jpg');
-    height: 40vh;
-    width: 100vw;
+    height: 100px;
+    width: 100%;
+    /* position: relative;
+    margin-top: -100px;; */
+    bottom: 0;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

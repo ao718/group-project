@@ -38,7 +38,7 @@ class Header extends React.Component{
             </DropdownMenu>
         </Dropdown>
         <h1>Our Store</h1>
-        <FontAwesomeIcon icon={faShoppingCart} size="2x" />
+        <FontAwesomeIcon icon={faShoppingCart} color="white" className="cart" size="2x" />
     </section>
     )
     }
