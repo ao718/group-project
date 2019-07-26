@@ -21,10 +21,32 @@
     margin-top: 100px;
     position: fixed;
 }
+.cart{
+    border: 1px slategray ridge;
+}
 
 .home{
     height: 100%;
     width: 100%;
     padding-top: 85px;
     position: fixed;
+}
+.itemCard{
+    height: 400px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    vertical-align: top;
+    padding: 10px 8px;
+
+}
+.imageContainer{
+    height: 150px;
+    width: 200px;
+    margin-bottom: 20px !important;
+
+}
+.imageFit{
+    height: 100%;
+    width: 100%;
 }
