@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-
+import {Link, BrowserRouter} from 'react-router-dom'
 
 class Home extends Component {
     constructor(){
@@ -9,9 +9,7 @@ class Home extends Component {
             department: "",
             clothingSize: "", 
             price :"",
-            brand: "",
-            isMuggle: false,
-            favorites: "", 
+            brand: "", 
             array: []  
         }
     }
@@ -28,10 +26,7 @@ class Home extends Component {
             department: this.state.department,
             clothingSize: this.state.clothingSize,
             price: this.state.price,
-            brand: this.state.brand,
-            isMuggle: this.state.isMuggle,
-            favorites: this.state.favorites,
-            
+            brand: this.state.brand,  
         }
         this.setState(prevState => ({
                 gender: "",
@@ -39,8 +34,6 @@ class Home extends Component {
                 clothingSize : "", 
                 price : "",
                 brand : "",
-                isMuggle : false,
-                favorites : "",
                 array: [...prevState.array, user]
         }))
     }
@@ -51,8 +44,8 @@ class Home extends Component {
                 <form onSubmit={this.handleSubmit} className="form">
                     <select className="select" name="gender" onChange={this.handleChange}> 
                         <option value="none"> - Select a Gender - </option>
-                        <option value="male"> Male </option>
-                        <option value="female"> Female </option>
+                        <option value="men"> Male </option>
+                        <option value="women"> Female </option>
                     </select>
                     <select className="select" name="department" onChange={this.handleChange}>
                         <option value="none"> - Select a Department - </option>
@@ -78,7 +71,7 @@ class Home extends Component {
                         <option value="75-100"> $75-100 </option> 
                         <option value="100-200"> $100-200 </option> 
                     </select>      
-                    <button className="select"> Submit </button>             
+                    <Link to={{pathname: `/results/`, state: {...this.state} }}> submit </Link>             
                 </form>
                 <p className="clothe">Shop for Clothes</p>
             </div>
