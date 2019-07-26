@@ -6,16 +6,15 @@ import Footer from "./components/Footer.js"
 const App = props => {
     return (
         <div>
-        <div>
-
+            <Home/>    
         </div>
-        {/* // <Switch>
-        //     <Route exact path="/" component={Home} />
+        
+    //     <Switch>
+    //         <Route exact path="/" component={Home} />
 
-        // </Switch> */}
-        <Footer/>
-        </div>
-    )
-}
+    //     </Switch>
+    //     <Footer/>
+     )
+    }
 
 export default App
