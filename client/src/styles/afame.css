@@ -2,34 +2,70 @@
     margin: 0;
 }
 
-.footer{
-    background-image: url('../pics/flower.jpg');
-    height: 40vh;
+.aofooter{
+    background-image: url('../pics/station.jpg');
+    height: 150px;
     width: 100vw;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    background-position-y: 30%;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px
 
 }
 
-.form {
+.aoform {
     height: 20px;
+    display: flex;
+    justify-content: center;
+    margin-top: 3%
 }
 
-.input {
-    height: 20px;
-    
-    
+.aoinput {
+  height: 50px;  
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 0px;
+  box-sizing: border-box;   
 }
 
-#subscribe {
+#aosubscribe {
     
 
 
 }
 
+#submit {
+  display: block;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: .75em;
+  letter-spacing: 1px;
+  height: 48px;
+  width: 140px;
+  line-height: 38px;
+  overflow: hidden;
+  background: #4dbecf;
+  border-radius: 10px;
+  box-shadow: 0 15px 30px rgba(black,.1);
+  border: 0;
+  cursor: pointer;
+  transition: all .3s ease;
+  margin: 10px
+}
 
 
-/* @media only screen and (min-width: 768px) {
-
-} */
+.aa {
+    height: 15px;
+    width: 15px;
+    font-size: 40px;
+    display: inline-flex;
+}
