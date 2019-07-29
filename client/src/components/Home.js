@@ -21,24 +21,24 @@ class Home extends Component {
             [e.target.name] : value
         })
     }
-    handleSubmit = e => {
-        e.preventDefault()
-        const user = {
-            gender: this.state.gender,
-            department: this.state.department,
-            clothingSize: this.state.clothingSize,
-            price: this.state.price,
-            brand: this.state.brand,  
-        }
-        this.setState(prevState => ({
-                gender: "",
-                department : "",
-                clothingSize : "", 
-                price : "",
-                brand : "",
-                array: [...prevState.array, user]
-        }))
-    }
+    // handleSubmit = e => {
+    //     e.preventDefault()
+    //     const user = {
+    //         gender: this.state.gender,
+    //         department: this.state.department,
+    //         clothingSize: this.state.clothingSize,
+    //         price: this.state.price,
+    //         brand: this.state.brand,  
+    //     }
+    //     this.setState(prevState => ({
+    //             gender: "",
+    //             department : "",
+    //             clothingSize : "", 
+    //             price : "",
+    //             brand : "",
+    //             array: [...prevState.array, user]
+    //     }))
+    // }
     render(){
         return(
 

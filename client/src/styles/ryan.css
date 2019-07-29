@@ -7,9 +7,9 @@
     
 }
 
-div > h1 {
+/* div > h1 {
     color: white
-}
+} */
 .form {
     /* display: flex; */
     /* justify-content: space-evenly;  */
@@ -24,4 +24,10 @@ div > h1 {
 }
 .clothe {
     color: white 
+}
+
+.mapped{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
 }
