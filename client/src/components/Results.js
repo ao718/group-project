@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import {withInventory} from "../context/InventoryProvider.js"
 import ItemCard from "./ItemCard.js"
+import SideNav from "./SideNav.js"
+import BrowseButton from "./BrowseButton.js"
 
 class Results extends Component{
     constructor(props){
@@ -11,21 +13,20 @@ class Results extends Component{
     }
     componentDidMount(){
         this.props.getAllQueries(this.props.location.state.gender, this.props.location.state.department, this.props.location.state.clothingSize)
-        this.setState({
-            results: this.props.inventory
-        })
+       
     }
     
     render(){
        
-    const mappedResults = this.state.results.map(result => 
+    const mappedResults = this.props.inventory.map(result => 
             <ItemCard key={result._id} image={result.imgUrl} brand={result.brand} price={result.price} />
     
         )
     console.log(this.props)
     return(
-        <div className="mapped">
-            
+        <div className="resultsList">
+            <SideNav></SideNav>
+            <BrowseButton></BrowseButton>
             {mappedResults}
         </div>
     )
