@@ -23,6 +23,7 @@ const itemSchema = new Schema ({
     price: {
         type: Number,
         required: true
+       
     },
     imgUrl: {
         type: String,
@@ -41,7 +42,7 @@ const itemSchema = new Schema ({
     
     description: {
         type: String,
-        default: ''
+        default: ""
     }
     
 })

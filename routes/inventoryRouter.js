@@ -14,6 +14,16 @@ inventoryRouter.get('/men', (req, res, next) => {
 
     })
 })
+inventoryRouter.get('/women', (req, res, next) => {
+    Item.find(({gender: 'women'}), (err, inventory) => {
+        if(err){
+            res.status(500)
+            return next(err)
+        }
+        return res.status(200).send(inventory)
+
+    })
+})
 
 
 inventoryRouter.get("/department", async (req, res, next) => {
@@ -54,6 +64,33 @@ inventoryRouter.get("/department", async (req, res, next) => {
     }
  
  })
+ 
+ inventoryRouter.get("/size", async (req, res, next) => {
+     try {
+         const items = await Item.find({size: req.query.size})
+         return res.status(200).send(items)
+     }
+     catch(err){
+         res.status(500)
+         return next(err)
+     }
+ })
+ 
+ inventoryRouter.get("/filterall", async (req,res, next) => {
+     try {
+         const items = await Item.find({gender: req.query.gender, 
+            department: req.query.department,
+            clothingSize: req.query.size
+            })
+            return res.status(200).send(items)
+     }
+     catch(err){
+         res.status(500)
+         return next(err)
+     }
+ })
+
+
 
 
 
@@ -66,27 +103,6 @@ inventoryRouter.delete(`/:_id`, (req, res, next) => {
             return next(err)
         }
         return res.status(202).send({ Item: deletedItem, msg: `Successfully Deleted ${deletedItem}`})
-    })
-})
-
-
-
-
-
-
-
-
-
-
-
-inventoryRouter.get('/women', (req, res, next) => {
-    Item.find(({gender: 'women'}), (err, inventory) => {
-        if(err){
-            res.status(500)
-            return next(err)
-        }
-        return res.status(200).send(inventory)
-
     })
 })
 
@@ -133,6 +149,16 @@ inventoryRouter.put('/favorites/:_id', (req, res, next) => {
 
 
 // Post
+inventoryRouter.post('/men', (req, res, next) => {
+    const newItem = new Item(req.body)
+    newItem.save((err, savedItem) => {
+        if(err){
+            res.status(500)
+            return next(err)
+        }
+        return res.status(201).send(savedItem)
+    })
+})
 inventoryRouter.post('/', (req, res, next) => {
     const newItem = new Item(req.body)
     newItem.save((err, savedItem) => {
