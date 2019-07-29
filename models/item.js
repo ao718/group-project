@@ -42,7 +42,7 @@ const itemSchema = new Schema ({
     
     description: {
         type: String,
-        default: ''
+        default: ""
     }
     
 })

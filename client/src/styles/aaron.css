@@ -1,5 +1,9 @@
-*{
-    margin: 0;
+body {
+  margin: 0;
+  padding: 0;
+  background: #232323;
+  color: #cdcdcd;
+  font-family: "Avenir Next", "Avenir", sans-serif;
 }
 
 .header{
@@ -15,21 +19,21 @@
     
 }
 
-.men{
-    height: 100vh;
-    width: 100vw;
-    margin-top: 100px;
-    position: fixed;
+a:hover {
+  color: tomato;
 }
 .cart{
     border: 1px slategray ridge;
 }
 
-.home{
-    height: 100%;
-    width: 100%;
-    padding-top: 85px;
-    position: fixed;
+#menuToggle {
+  display: block;
+  position: relative;
+  top: 50px;
+  left: 50px; 
+  z-index: 1;
+  -webkit-user-select: none;
+  user-select: none;
 }
 .itemCard{
     height: 400px;

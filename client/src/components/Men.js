@@ -10,7 +10,7 @@ class Men extends React.Component{
         }
     }
     componentDidMount(){
-        this.props.getByBrand("Yeezy")
+        this.props.getByBrand("")
     }
     render(){
     return(
