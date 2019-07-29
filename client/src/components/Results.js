@@ -24,7 +24,7 @@ class Results extends Component{
         )
     console.log(this.props)
     return(
-        <div>
+        <div className="mapped">
             
             {mappedResults}
         </div>
