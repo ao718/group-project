@@ -19,7 +19,7 @@ class Results extends Component{
     render(){
        
     const mappedResults = this.props.inventory.map(result => 
-            <ItemCard key={result._id} image={result.imgUrl} brand={result.brand} price={result.price} />
+            <ItemCard key={result._id} image={result.imgUrl} brand={result.brand} />
     
         )
     console.log(this.props)

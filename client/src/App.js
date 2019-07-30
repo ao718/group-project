@@ -15,6 +15,7 @@ const App = props => {
             <Route path="/men" render = {routerProps => <Men {...routerProps} /> } />
             <Route path="/results" render = {routerProps => <Results {...routerProps} />} />
         </Switch>
+        
        {/* <Footer/> */}
         </>
     )
