@@ -1,20 +1,18 @@
-import React, {Component} from 'react'
+import React, {Component} from "react"
 import {withInventory} from "../context/InventoryProvider.js"
 import ItemCard from "./ItemCard.js"
 import SideNav from "./SideNav.js"
 import BrowseButton from "./BrowseButton.js"
 import Toggle from "../shared/toggler.js"
 
-class Results extends Component{
+
+class BrowseResults extends Component {
     constructor(props){
-        super()
-        this.state = {
-            results: []
-        }
+        super(props)
     }
     componentDidMount(){
-        this.props.getAllQueries(this.props.location.state.gender, this.props.location.state.department, this.props.location.state.clothingSize)
-       
+        this.props.getDepartments(this.props.department, this.props.gender)
+      
     }
     
     render(){
@@ -30,10 +28,11 @@ class Results extends Component{
                 <SideNav style={{left: on? "0px" : "-150px"}}></SideNav>
                 
                 {mappedResults}
-                <BrowseButton onClick={toggler}></BrowseButton>
+                <BrowseButton style={{left: on? "-75px" : "-8px"}} onClick={toggler}></BrowseButton>
             </div>
         }/>
     )
     }
 }
-export default withInventory(Results)
+
+export default withInventory(BrowseResults)

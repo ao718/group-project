@@ -4,7 +4,7 @@ import {Link} from "react-router-dom"
 const SideNav = props => {
 
     return(
-        <div className="sideNav">
+        <div className="sideNav" style={props.style}>
             <div>
                 <p>Browse by:</p>
             </div>

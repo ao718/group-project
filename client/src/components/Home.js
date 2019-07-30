@@ -42,26 +42,8 @@ class Home extends Component {
     render(){
         return(
 
-            <nav role="navigation">
-            <div id="menuToggle">
-    
-             <input type="checkbox" />
-
-                <span></span>
-                <span></span>
-                <span></span>
-    
-    
-            <ul id="menu">
-                <a href="#"><li>Home</li></a>
-                <a href="#"><li>Men</li></a>
-                <a href="#"><li>Women</li></a>
-                <a href="#"><li>Accessories</li></a>
-                <a href="" target="blank"><li>Contact</li></a>
-        </ul>
-        </div>
-        </nav>
-            /* <div className = "home">
+           
+             <div className = "home">
                 <h1> Our title </h1>
                 <form onSubmit={this.handleSubmit} className="form">
                     <select className="select" name="gender" onChange={this.handleChange}> 
@@ -96,7 +78,7 @@ class Home extends Component {
                     <Link to={{pathname: `/results/`, state: {...this.state} }} className="link"> submit </Link>             
                 </form>
                 <p className="clothe">Shop for Clothes</p>
-            </div> */
+            </div> 
             
         )
     }

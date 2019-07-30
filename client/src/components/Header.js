@@ -1,5 +1,6 @@
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {Dropdown, DropdownItem, DropdownToggle, DropdownMenu, } from "reactstrap"
 import React from "react"
 import {Link} from "react-router-dom"
 
