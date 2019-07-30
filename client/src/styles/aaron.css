@@ -42,13 +42,12 @@ a:hover {
     padding: 10px 8px;
     margin: auto !important;
     margin-top: 50px;
-
 }
 .imageContainer{
     height: 150px;
     width: 200px;
     margin-bottom: 20px !important;
-
+    
 }
 .imageFit{
     height: 100%;

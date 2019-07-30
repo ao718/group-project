@@ -28,6 +28,7 @@ const App = props => {
             <Route path="/womenshoes" render = {routerProps => <BrowseResults department= "shoes" gender="women" {...routerProps} />} />
             <Route path="/womenpants" render = {routerProps => <BrowseResults department= "pants" gender="women" {...routerProps} />} />
         </Switch>
+        
        {/* <Footer/> */}
         </>
     )
