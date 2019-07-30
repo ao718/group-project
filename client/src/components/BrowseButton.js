@@ -2,7 +2,7 @@ import React from "react"
 
 const BrowseButton = props => {
     return(
-    <button className = "browseButton">
+    <button style={props.style} onClick= {props.onClick} className = "browseButton">
         press to browse & filter
     </button>
     )

@@ -9,6 +9,7 @@ const ItemCard = props => {
         </div>
         <p>${props.price}</p>
         <p>{props.brand}</p>
+        <p>favorited {props.favorites} times</p>
     </div>
 
 
