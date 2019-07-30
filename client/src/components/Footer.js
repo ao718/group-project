@@ -1,5 +1,11 @@
-
+// import {TweenMax, Power2, TimelineLite} from "gsap/TweenMax"
+// import Draggable from "gsap/Draggable"
+// import ScrollToPlugin from "gsap/ScrollToPlugin"
+// import {TweenMax, CSSPlugin, ScrollToPlugin, Draggable, Elastic} from "gsap/all"
+// const plugins = [CSSPlugin, ScrollToPlugin] 
 import React, { Component } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTwitter, faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons'
 
 class Footer extends Component {
     constructor(){
@@ -35,16 +41,22 @@ class Footer extends Component {
     render(){
 
         return(
-            <div className = 'footer'>
-                <form className= 'form' onSubmit = {this.handleSubmit}>
-                    <input className = 'input' type="text" 
+            <div className = 'aofooter'>
+
+                <form className= 'aoform' onSubmit = {this.handleSubmit}>
+                    <input className = 'aoinput' type="text" 
                            name="email" 
                            value ={this.state.email} 
                            onChange ={this.handleChange}
                            placeholder="Email Address"/>
-                    <button>Submit</button>
+                    <button id = 'submit'> Subscribe </button>
                 </form>
-                <p id= "subscribe"> Subscribe to our Mailing list</p>
+                <p id= "aosubscribe"> </p>
+                {/* <div className= 'aa'>
+                    <a href="#"><FontAwesomeIcon icon = {faTwitter}/> </a>
+                    <a href="#"><FontAwesomeIcon icon = {faInstagram}/> </a>
+                    <a href="#"><FontAwesomeIcon icon = {faFacebook}/> </a>
+                </div> */}
             </div>
         )
     }

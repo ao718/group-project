@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import Footer from '../components/Footer.js'
+
 import {Link, BrowserRouter} from 'react-router-dom'
 
 class Home extends Component {
@@ -39,7 +41,9 @@ class Home extends Component {
     }
     render(){
         return(
-            <div className = "home">
+
+           
+             <div className = "home">
                 <h1> Our title </h1>
                 <form onSubmit={this.handleSubmit} className="form">
                     <select className="select" name="gender" onChange={this.handleChange}> 
@@ -74,7 +78,8 @@ class Home extends Component {
                     <Link to={{pathname: `/results/`, state: {...this.state} }} className="link"> submit </Link>             
                 </form>
                 <p className="clothe">Shop for Clothes</p>
-            </div>
+            </div> 
+            
         )
     }
 }

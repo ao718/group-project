@@ -3,6 +3,7 @@ import {withInventory} from "../context/InventoryProvider.js"
 import ItemCard from "./ItemCard.js"
 import SideNav from "./SideNav.js"
 import BrowseButton from "./BrowseButton.js"
+import Toggle from "../shared/toggler.js"
 
 class Results extends Component{
     constructor(props){
@@ -19,16 +20,19 @@ class Results extends Component{
     render(){
        
     const mappedResults = this.props.inventory.map(result => 
-            <ItemCard key={result._id} image={result.imgUrl} brand={result.brand} />
+            <ItemCard key={result._id} image={result.imgUrl} brand={result.brand} price={result.price} favorites={result.favorites} />
     
         )
     console.log(this.props)
     return(
-        <div className="resultsList">
-            <SideNav></SideNav>
-            <BrowseButton></BrowseButton>
-            {mappedResults}
-        </div>
+        <Toggle render={({on, toggler}) =>
+            <div className="resultsList">
+                <SideNav style={{left: on? "0px" : "-150px"}}></SideNav>
+                
+                {mappedResults}
+                <BrowseButton onClick={toggler}></BrowseButton>
+            </div>
+        }/>
     )
     }
 }

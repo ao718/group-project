@@ -149,6 +149,16 @@ inventoryRouter.put('/favorites/:_id', (req, res, next) => {
 
 
 // Post
+inventoryRouter.post('/men', (req, res, next) => {
+    const newItem = new Item(req.body)
+    newItem.save((err, savedItem) => {
+        if(err){
+            res.status(500)
+            return next(err)
+        }
+        return res.status(201).send(savedItem)
+    })
+})
 inventoryRouter.post('/', (req, res, next) => {
     const newItem = new Item(req.body)
     newItem.save((err, savedItem) => {

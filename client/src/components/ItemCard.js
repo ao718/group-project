@@ -20,6 +20,7 @@ class ItemCard extends Component{
                 </div>
                 <p>{this.props.price}</p>
                 <p>{this.props.brand}</p>
+                <p>favorited by {this.props.favorites} others</p>
                 <div>
                     <button onClick={this.handleClick}> Add to Favorites</button>
                     <button > Add to Cart</button>

@@ -1,5 +1,7 @@
 *{
-    margin: 0;
+  margin: 0;
+  padding: 0;
+  font-family: "Avenir Next", "Avenir", sans-serif;
 }
 
 .header{
@@ -15,21 +17,21 @@
     
 }
 
-.men{
-    height: 100vh;
-    width: 100vw;
-    margin-top: 100px;
-    position: fixed;
+a:hover {
+  color: tomato;
 }
 .cart{
     border: 1px slategray ridge;
 }
 
-.home{
-    height: 100%;
-    width: 100%;
-    padding-top: 85px;
-    position: fixed;
+#menuToggle {
+  display: block;
+  position: relative;
+  top: 50px;
+  left: 50px; 
+  z-index: 1;
+  -webkit-user-select: none;
+  user-select: none;
 }
 .itemCard{
     height: 400px;
@@ -59,8 +61,8 @@
 }
 
 .sideNav{
-    position: absolute;
-    left: 0px;
+    position: fixed;
+    /* left: -150px; */
     top: 100px;
     height: 500px;
     width: 150px;
@@ -77,6 +79,13 @@
 .browseButton{
     height: 120px;
     width: 75px;
-    border: 3px gray inset;
+    border: 2px gray inset;
     border-radius: 8px;
+    position: fixed;
+    left: -8px;
+    top: 200px;
+    font-size: .8em
+}
+.displayNone{
+    display: none;
 }

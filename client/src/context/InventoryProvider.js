@@ -49,7 +49,8 @@ class InventoryProvider extends Component {
                     getWomenInventory: this.getWomenInventory,
                     inventory:this.state.inventory,
                     getByBrand: this.getByBrand,
-                    getAllQueries: this.getAllQueries
+                    getAllQueries: this.getAllQueries,
+                    getDepartments: this.getDepartments
                 }}>
                     {this.props.children}
                 </InventoryContext.Provider>
