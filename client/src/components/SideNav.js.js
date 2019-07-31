@@ -10,14 +10,14 @@ const SideNav = props => {
             </div>
             <h4>Men</h4>
             <Link to={{pathname: `/menaccessories`}}> accessories </Link> 
-            <Link to={{pathname: `/mensocksandunderwear`}}> socks & underwear </Link> 
+            <Link to={{pathname: `/mensocksandunderwear`}}> socks and underwear </Link> 
             <Link to={{pathname: `/menouterwear`}}> outerwear </Link> 
             <Link to={{pathname: `/menshirts`}}> shirts </Link> 
             <Link to={{pathname: `/menpants`}}> pants </Link> 
             <Link to={{pathname: `/menshoes`}}> shoes </Link> 
             <h4>Women</h4>
             <Link to={{pathname: `/womenaccessories`}}> accessories </Link> 
-            <Link to={{pathname: `/womensocksandunderwear`}}> socks & underwear </Link> 
+            <Link to={{pathname: `/womensocksandunderwear`}}> socks and underwear </Link> 
             <Link to={{pathname: `/womenouterwear`}}> outerwear </Link> 
             <Link to={{pathname: `/womenshirts`}}> shirts </Link> 
             <Link to={{pathname: `/womenpants`}}> pants </Link> 
