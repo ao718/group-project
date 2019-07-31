@@ -41,6 +41,16 @@ class InventoryProvider extends Component {
             .then(res => this.setState({inventory: res.data}))
             .catch(err => console.log(err))
     }
+    updateFavorites = (id) => {
+        axios.put(`/inventory/favorites/${id}`)
+            .then(res => console.log("itUpdated"))
+            .catch(err => console.log(err))
+    }
+    getFavorites = () => {
+        axios.get("/inventory/favorites")
+            .then(res => this.setState({inventory: res.data}))
+            .catch(err => console.log(err))
+    }
 
         render(){
             return(
@@ -50,7 +60,9 @@ class InventoryProvider extends Component {
                     inventory:this.state.inventory,
                     getByBrand: this.getByBrand,
                     getAllQueries: this.getAllQueries,
-                    getDepartments: this.getDepartments
+                    getDepartments: this.getDepartments,
+                    updateFavorites: this.updateFavorites,
+                    getFavorites: this.getFavorites
                 }}>
                     {this.props.children}
                 </InventoryContext.Provider>

@@ -7,12 +7,12 @@ import Toggle from "../shared/toggler.js"
 
 
 
-class BrowseResults extends Component {
+class HotItems extends Component {
     constructor(props){
         super(props)
     }
     componentDidMount(){
-        this.props.getDepartments(this.props.department, this.props.gender)
+        this.props.getFavorites()
       
     }
     componentDidUpdate(prevProps){
@@ -42,4 +42,4 @@ class BrowseResults extends Component {
     }
 }
 
-export default withInventory(BrowseResults)
+export default withInventory(HotItems)
