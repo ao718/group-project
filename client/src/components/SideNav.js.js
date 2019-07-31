@@ -1,5 +1,7 @@
 import React from "react"
 import {Link} from "react-router-dom"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faTimes} from '@fortawesome/free-solid-svg-icons'
 
 const SideNav = props => {
 
@@ -22,6 +24,10 @@ const SideNav = props => {
             <Link to={{pathname: `/womenshirts`}}> shirts </Link> 
             <Link to={{pathname: `/womenpants`}}> pants </Link> 
             <Link to={{pathname: `/womenshoes`}}> shoes </Link> 
+            <div className="closebutton">
+                <h6>close</h6>
+                <FontAwesomeIcon onClick={props.handleClick} icon={faTimes} color="black"  size="2x" />
+            </div>
         </div>
 
     )
