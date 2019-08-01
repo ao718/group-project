@@ -1,71 +1,104 @@
-import React, from { Component } 
-import axios from 'axios'
+import React, { Component } from "react"
+import axios from "axios"
+const UserContext = React.createContext()
 
 const userAxios = axios.create()
-// Axios interceptor
+
 userAxios.interceptors.request.use((config) => {
-    const token = localStorage.getItem(`token`)
-    config.headers.
+    const token = localStorage.getItem("token")
+    config.headers.Authorization = `Bearer ${token}`
+    return config
 })
 
-
-const UserContext = React.createContext()
 class UserProvider extends Component {
     constructor(){
         super()
         this.state = {
-            user: JSON.parse(localStorage.getItem('user')) || {},
-            token: localStorage.getItem(`token`) ||  ""
+            user: JSON.parse(localStorage.getItem("user")) || {},
+            token: "",
+            cart: [],
+            favorites: []
+
         }
     }
-signup = credentials => {
-    axios.post(`/auth/signup`, credentials)
+    addToCart = (item,id) => {
+        userAxios.put(`/api/cart/${id}`, {cart:[...this.state.cart, item]})
+        .then(res => {
+            const user = res.data
+            this.setState({cart: user.cart})
+            
+        })
+        .catch(err => console.log(err))
+    }
+    getUserCart = (item, id) => {
+        userAxios.get(`/api/cart/${id}`)
+        .then(res => {
+            const {cart} = res.data
+            console.log(cart)
+            this.setState({cart})
+        } )
+        .catch(err => console.log(err))
+    }
+
+    deleteFromCart = (_id,item) => {
+        userAxios.delete(`/api/cart/${_id}`, {cart: item})
+        .then(res => {
+            const {user} = res.data
+            this.setState({cart: user.cart})
+        })
+    }
+
+    signup = credentials => {
+        axios.post("/auth/signup", credentials)
         .then(res => {
             const { user, token } = res.data
-            localStorage.setItem(`token`, token)
-            localStorage.setItem(`user`, JSON.stringify(user))
-            this.setState({user, token})
+            localStorage.setItem("token", token)
+            localStorage.setItem("user", JSON.stringify(user))
+            this.setState({ user, token, cart: user.cart, favorites: user.favorites})
         })
-    }   catch(err => console.dir(err))
-}
+        .catch(err => console.log(err))
+    }
 
-login = () => {
- axios.post(`/auth/login`, credentials)
+    login = credentials => {
+        axios.post("/auth/login", credentials)
         .then(res => {
             const { user, token } = res.data
-            localStorage.setItem(`token`, token)
-            localStorage.setItem(`user`, JSON.stringify(user))
-            this.setState({user, token})
+            localStorage.setItem("token", token)
+            console.log(user)
+            localStorage.setItem("user", JSON.stringify(user))
+            this.setState({ user, token})
         })
-    }   catch(err => console.dir(err))
-}
+        .catch(err => console.log(err))
+    }
 
-
-logout = () => {
-    localStorage.removeItem(`token`)
-    localStorage.removeItem(`user`)
-    this.setState({
-        user: {},
-        token: ""
-    })
-}
-
-render(){
-    return (
-        <UserContext.Provider
-            value = {{
-                ...this.state,
-                signup: this.signup,
-                login: this.login,
-                logout: this.logout
-            }}>
-            { this.props.children }
-        </UserContext.Provider>
-    )
+    logout = () => {
+        localStorage.removeItem("token")
+        localStorage.removeItem("user")
+        this.setState({token: "", user: {}})
+    }
+    render(){
+        return(
+            <UserContext.Provider
+                value={{
+                    ...this.state,
+                    signup: this.signup,
+                    login: this.login,
+                    logout: this.logout,
+                    addToCart: this.addToCart,
+                    getUserCart: this.getUserCart,
+                    deleteFromCart: this.deleteFromCart
+                    
+                }}>
+                    {this.props.children}
+                </UserContext.Provider>
+        )
+    }
 }
 
 export default UserProvider
 
 export const withUser = C => props => (
-    
+    <UserContext.Consumer>
+        { value => <C {...value} {...props}/> }
+    </UserContext.Consumer>
 )

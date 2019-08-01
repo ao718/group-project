@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component} from "react"
 import {withInventory} from "../context/InventoryProvider.js"
 import ItemCard from "./ItemCard.js"
 import SideNav from "./SideNav.js"
@@ -6,34 +6,32 @@ import BrowseButton from "./BrowseButton.js"
 import Toggle from "../shared/toggler.js"
 
 
-class Results extends Component{
+
+class BrowseResults extends Component {
     constructor(props){
-        super(props)
-        this.state = {
-            results: []
-        }
+        super()
     }
     componentDidMount(){
-        this.props.getAllQueries(
-            this.props.location.state.gender, 
-            this.props.location.state.department, 
-            this.props.location.state.clothingSize
-            )
-       
+        this.props.getDepartments(this.props.department, this.props.gender)
+      
     }
-    add
+    componentDidUpdate(prevProps){
+        if(prevProps.department !== this.props.department || prevProps.gender !== this.props.gender){
+            this.props.getDepartments(this.props.department, this.props.gender)
+        }
+    }
     
     render(){
+        console.log(this.props)
         const user = JSON.parse(localStorage.getItem("user"))
         const userId = user._id
         
        
     const mappedResults = this.props.inventory.map(result => {
-          
-         return   <ItemCard key={result._id} image={result.imgUrl} brand={result.brand}  price={result.price} description={result.description}  favorites={result.favorites} object={result}/>
+            console.log(result)
+           return <ItemCard key={result._id} image={result.imgUrl} brand={result.brand} price={result.price} favorites={result.favorites} id={result._id} object={result}  />
     
     })
-    console.log(this.props)
     return(
         <Toggle render={({on, toggler}) =>
             <div className="resultsList">
@@ -46,4 +44,5 @@ class Results extends Component{
     )
     }
 }
-export default withInventory(Results)
+
+export default withInventory(BrowseResults)

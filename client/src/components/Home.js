@@ -7,10 +7,9 @@ class Home extends Component {
     constructor(){
         super()
         this.state = {
-            gender:"",
+            gender: "",
             department: "",
             clothingSize: "", 
-            price :"",
             brand: "", 
             array: []  
         }
@@ -27,42 +26,23 @@ class Home extends Component {
             gender: this.state.gender,
             department: this.state.department,
             clothingSize: this.state.clothingSize,
-            price: this.state.price,
             brand: this.state.brand,  
         }
         this.setState(prevState => ({
                 gender: "",
                 department : "",
                 clothingSize : "", 
-                price : "",
                 brand : "",
                 array: [...prevState.array, user]
         }))
     }
     render(){
         return(
-<>
-            <nav role="navigation">
-            <div id="menuToggle">
-    
-             <input type="checkbox" />
 
-                <span></span>
-                <span></span>
-                <span></span>
-    
-    
-            <ul id="menu">
-                <a href="#"><li>Home</li></a>
-                <a href="#"><li>Men</li></a>
-                <a href="#"><li>Women</li></a>
-                <a href="#"><li>Accessories</li></a>
-                <a href="" target="blank"><li>Contact</li></a>
-        </ul>
-        </div>
-        </nav>
+           
              <div className = "home">
                 <h1> Our title </h1>
+                <h2 className="clothe">Shop for Clothes</h2>
                 <form onSubmit={this.handleSubmit} className="form">
                     <select className="select" name="gender" onChange={this.handleChange}> 
                         <option value="none"> - Select a Gender - </option>
@@ -75,7 +55,7 @@ class Home extends Component {
                         <option value="pants"> Pants</option>
                         <option value="shoes"> Shoes</option>
                         <option value="accessories"> Accessories</option>
-                        <option value="socks & underwear"> Socks and Underwear</option>
+                        <option value="socksandunderwear"> Socks and Underwear</option>
                         <option value="outerwear"> Outerwear</option>
                     </select>
                     <select className="select" name="clothingSize" onChange={this.handleChange}>
@@ -85,19 +65,11 @@ class Home extends Component {
                         <option value="medium"> Medium</option>
                         <option value="large"> Large</option>
                         <option value="x-large"> Extra Large</option>
-                    </select>
-                    <select className="select" name="price" onChange={this.handleChange}>
-                        <option value="none"> - Select a Price - </option>
-                        <option value="0-25"> $0-25 </option> 
-                        <option value="25-50"> $25-50 </option> 
-                        <option value="75-100"> $75-100 </option> 
-                        <option value="100-200"> $100-200 </option> 
-                    </select>      
-                    <Link to={{pathname: `/results/`, state: {...this.state} }}> submit </Link>             
+                    </select>     
+                    <Link to={{pathname: `/results/`, state: {...this.state} }} className="link"> submit </Link>             
                 </form>
-                <p className="clothe">Shop for Clothes</p>
             </div> 
-            </>
+            
         )
     
     }

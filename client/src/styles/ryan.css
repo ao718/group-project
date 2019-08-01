@@ -7,18 +7,10 @@
     
 }
 
-/* div > h1 {
-    color: white
-} */
 
-
-/* .form {
-    display: flex; 
-    justify-content: space-evenly; 
-     
-} */
-
-
+.form{
+    margin-top: 150px !important;
+}
 .select{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     display: flex;
@@ -27,11 +19,28 @@
     padding: 0px 40px; 
 }
 .clothe {
-    color: white 
+    color: white;
+    display: flex;
+    justify-content: center;
+    
 }
 
 .mapped{
     margin-top: 20px;
     display: flex;
     justify-content: center;
+}
+.link{
+    border: 5px solid white;
+    border-radius: 10px 10px; 
+    color:rgba(255, 255, 255, 0.849);
+    font-size: 25px;
+    display: flex;
+    justify-content: center
+}
+
+.reactButton{
+    position: fixed;
+    left: 0px;
+    top: 250px
 }

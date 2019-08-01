@@ -1,32 +1,27 @@
-import React, { Component } from 'react'
-import AuthForm from './AuthForm.js'
-import { withUser } from '../../context/UserProvider.js'
+import React, {Component} from "react"
+import AuthForm from "./AuthForm.js"
+import { withUser } from "../../context/UserProvider.js"
+import Toggle from "../../shared/toggler.js"
 
 
 class Auth extends Component {
-    constructor(){
+    constructor(props){
         super()
         this.state = {
-            Username: "",
-            Password: "",
-            toggle: false
+            username: "",
+            password: ""
         }
     }
-
-    toggler = () => {
-        this.setState(prevState => ({ toogle: !prevState.toggle }))
-    } 
-
     handleChange = e => {
         const { name, value } = e.target
-        this.setState({[name]: value})
+        this.setState({ [name]: value })
     }
 
     handleSignupSubmit = e => {
         e.preventDefault()
         const creds = {
             username: this.state.username,
-            password: this.state.password
+            password: this.state.password,
         }
 
         this.props.signup(creds)
@@ -39,39 +34,42 @@ class Auth extends Component {
             username: this.state.username,
             password: this.state.password
         }
-
         this.props.login(creds)
     }
-
-
+    
+    
     render(){
-        return (
-            <div>
-                { !this.state.toggle ?
-                <>
-                    <AuthForm 
-                        username = {this.state.username}
-                        password = {this.state.password}
-                        handleChange = {this.handleChange}
-                        handleSubmit = {this.handleSignupSubmit}
-                        btnText = 'Sign up'
-                    />
-                    <p onClick = {this.toggler}> Already have an account? </p>
-                  </>  
-                :
-                <>
-                    <AuthForm 
-                        username = {this.state.username}
-                        password = {this.state.password}
-                        handleChange = {this.handleChange}
-                        handleSubmit = {this.handleLoginSubmit}
-                        btnText = 'Login'
-                    />
-                    <p onClick = {this.toggler}> Don't have an account? </p>
-                </> 
-                }
-            </div>
+        console.log(this.props)
+        return(
+            <Toggle render={({on, toggler}) =>
+                <div className="authForm">
+                {/* <Toggle render={({on, toggler}) => */}
+                    { !on ?
+
+                        <>
+                            <AuthForm
+                                username={this.state.username}
+                                password={this.state.password}
+                                handleSubmit={this.handleSignupSubmit}
+                                handleChange={this.handleChange}
+                                buttonText="sign up"/>
+
+                        </>
+                    :    
+                        <>
+                            <AuthForm
+                                username={this.state.username}
+                                password={this.state.password}
+                                handleSubmit={this.handleLoginSubmit}
+                                handleChange={this.handleChange}
+                                buttonText="Log In"/>
+                        </>
+                    }
+                        <button onClick={toggler}>signup or sign in</button>
+                </div>
+            }/>
         )
     }
 }
-export default withUser(Auth);
+
+export default withUser(Auth)

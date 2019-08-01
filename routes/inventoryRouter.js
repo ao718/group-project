@@ -39,7 +39,20 @@ inventoryRouter.get(`/department`, async (req, res, next) => {
  
  })
 
- inventoryRouter.get(`/price`, async (req, res, next) => {
+ inventoryRouter.get("/favorites", async (req, res, next) => {
+    
+    try {
+        const items = await Item.find({ favorites: {$gte: 5}})
+        return res.status(200).send(items)
+    }
+    catch(err){
+        res.status(500)
+        return next(err)
+    }
+ 
+ })
+
+ inventoryRouter.get("/price", async (req, res, next) => {
     
     try {
         const items = await Item.find({ price: req.query.price })
@@ -139,6 +152,8 @@ inventoryRouter.put(`/favorites/:_id`, (req, res, next) => {
         }
     )
 })
+
+
 
 
 

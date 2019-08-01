@@ -3,6 +3,7 @@ const app = express()
 require('dotenv').config()
 const morgan = require('morgan')
 const mongoose = require('mongoose')
+require("dotenv").config()
 const PORT = process.env.PORT || 7000
 const expressJwt = require('express-jwt')
 
@@ -45,3 +46,5 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
     console.log('its up')
 })
+
+
