@@ -21,7 +21,7 @@ class Results extends Component{
             )
        
     }
-    add
+    
     
     render(){
         const user = JSON.parse(localStorage.getItem("user"))
