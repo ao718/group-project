@@ -1,7 +1,7 @@
 import React from "react"
 import {Switch,Route, Redirect} from "react-router-dom"
 import Home from "./components/Home.js"
-// import Footer from "./components/Footer.js"
+import Footer from "./components/Footer.js"
 import Men from "./components/Men.js"
 import Women from "./components/Women.js"
 import Header from "./components/Header.js"

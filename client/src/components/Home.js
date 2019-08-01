@@ -72,9 +72,9 @@ class Home extends Component {
                     <Footer></Footer>
             </main>   
         )
-    }
-}
     
+    }
+}   
 
 
 export default Home 
