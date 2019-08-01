@@ -66,7 +66,7 @@ class Home extends Component {
                         <option value="large"> Large</option>
                         <option value="x-large"> Extra Large</option>
                     </select>     
-                    <Link to={{pathname: `/results/`, state: {...this.state} }} className="link"> submit </Link>             
+                    <Link to={{pathname: `/results`, state: {...this.state} }} className="link"> submit </Link>             
                 </form>
             </div> 
             

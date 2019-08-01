@@ -20,7 +20,13 @@ class Cart extends Component {
     render(){
         console.log(this.props)
       const mappedItems =  this.props.cart.map(item => 
-                <CartCard key={item._id} image={item.imgUrl} brand={item.brand} price={item.price} favorites={item.favorites} id={item._id}  />
+                <CartCard key={item._id} 
+                          image={item.imgUrl} 
+                          brand={item.brand} 
+                          price={item.price} 
+                          favorites={item.favorites} 
+                          id={item._id}  
+                          />
     
             )
         return(

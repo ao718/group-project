@@ -11,7 +11,7 @@ const jwt = require('jsonwebtoken')
 
 authRouter.post(`/signup`, (req, res, next) => {
     // Check the database to see if the requested username already exist
-    User.findOne({ username: req.body.username}, (err, user) => {
+    User.findOne({ username: req.body.username.toLowerCase()}, (err, user) => {
        if(err){
            res.status(500)
            return next(err)
@@ -29,8 +29,8 @@ authRouter.post(`/signup`, (req, res, next) => {
                 return next(err)
             
             }
-            const token = jwt.sign(savedUser.toObject(), process.env.SECRET)
-            return res.status(201).send({token, user: savedUser})
+            const token = jwt.sign(savedUser.withoutPassword(), process.env.SECRET)
+            return res.status(201).send({token, user: savedUser.withoutPassword()})
 
         })
     })    
@@ -43,13 +43,27 @@ authRouter.post(`/login`, (req, res, next) => {
             return next(err)
         }
         
-        if(!user || user.password !== req.body.password){
+        if(!user ){
             res.status(403)
             return next(new Error(`Username or Password are incorrect`))
         }
-
-        const token = jwt.sign(user.toObject(), process.env.SECRET)
-        return res.status(200).send({token, user})
+        user.checkPassword(req.body.password, (err, isMatch) => {
+            if(err){
+                res.status(401)
+                return next(err)
+            }
+            if(!isMatch){
+            res.status(401)
+            return next(new Error(`Username or Password are incorrect`))
+            }
+            
+            
+            
+            
+            const token = jwt.sign(user.withoutPassword(), process.env.SECRET)
+            return res.status(200).send({token, user: user.withoutPassword()})
+        })
+        
     })
 })
 
