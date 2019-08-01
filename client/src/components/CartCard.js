@@ -22,11 +22,12 @@ class CartCard extends Component{
     }
     
     handleDelete = () => {
-        this.props.delteFromCart(this.props.id)
+        this.props.deleteFromCart(this.props.user._id, this.props.id )
     }
+    
 
     render(){
-        
+        console.log(this.props)
         return(
             <Toggle render={({ toggler, modal}) =>
                 <>
@@ -46,7 +47,7 @@ class CartCard extends Component{
                             <img className="imageFit" alt="itemPic" src={this.props.image}></img>
                         </div>
                         <p>${this.props.price}</p>
-                        <p>{this.props.brand}</p>
+                        <p>{this.props.brand}</p><span style={{display: "none"}}>{this.props.id}</span>
                         <p>favorited by {this.props.favorites} others</p>
                         <div>
                             <button onClick={this.handleDelete}>delete</button>

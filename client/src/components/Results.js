@@ -20,20 +20,22 @@ class Results extends Component{
     add
     
     render(){
+        const user = JSON.parse(localStorage.getItem("user"))
+        const userId = user._id
        
-    const mappedResults = this.props.inventory.map(result => 
+    const mappedResults = this.props.inventory.map(result => {
           
-            <ItemCard key={result._id} image={result.imgUrl} brand={result.brand} price={result.price} description={result.description} favorites={result.favorites} />
+         return   <ItemCard key={result._id} image={result.imgUrl} brand={result.brand}  price={result.price} description={result.description}  favorites={result.favorites} object={result}/>
     
-        )
+    })
     console.log(this.props)
     return(
         <Toggle render={({on, toggler}) =>
             <div className="resultsList">
-                <SideNav style={{left: on? "0px" : "-150px"}}></SideNav>
+                <SideNav handleClick={toggler} style={{left: on? "0px" : "-150px"}}></SideNav>
                 
                 {mappedResults}
-                <BrowseButton onClick={toggler}></BrowseButton>
+                <BrowseButton style={{left: on? "-75px" : "-8px"}} onClick={toggler}></BrowseButton>
             </div>
         }/>
     )

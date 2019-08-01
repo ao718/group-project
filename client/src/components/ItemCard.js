@@ -12,10 +12,8 @@ class ItemCard extends Component{
         }
     }
 
-    handleCart = e => {
-        e.preventDefault()
-        this.props.addToCart(this.props.object, this.props.id)
-        
+    handleCart = () => {
+        this.props.addToCart(this.props.object,this.props.user._id)
     }
         
     handleClick = e => {
