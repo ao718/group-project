@@ -1,5 +1,5 @@
 import React from "react"
-import {Switch,Route} from "react-router-dom"
+import {Switch,Route, Redirect} from "react-router-dom"
 import Home from "./components/Home.js"
 // import Footer from "./components/Footer.js"
 import Men from "./components/Men.js"
@@ -7,6 +7,9 @@ import Header from "./components/Header.js"
 import Results from "./components/Results.js"
 import BrowseResults from "./components/BrowseResults"
 import HotItems from "./components/HotItems.js"
+import Auth from "./components/Auth"
+import Cart from "./components/Cart.js"
+// import ProtectedRoute from "./shared/ProtectedRoute.js"
 
 
 const App = props => {
@@ -30,6 +33,9 @@ const App = props => {
             <Route path="/womenshirts" render = {routerProps => <BrowseResults department= "shirts" gender="women" {...routerProps} />} />
             <Route path="/womenshoes" render = {routerProps => <BrowseResults department= "shoes" gender="women" {...routerProps} />} />
             <Route path="/womenpants" render = {routerProps => <BrowseResults department= "pants" gender="women" {...routerProps} />} />
+            <Route path="/genderneutral" render = {routerProps => <Auth {...routerProps} />} />
+            <Route path="/cart" render = {routerProps => <Cart {...routerProps} />} />
+            
             
         </Switch>
         
