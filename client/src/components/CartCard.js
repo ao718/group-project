@@ -3,28 +3,30 @@ import {withInventory} from "../context/InventoryProvider.js"
 import {withUser} from "../context/UserProvider.js"
 import Toggle from "../shared/toggler.js"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import axios from "axios";
 
-class ItemCard extends Component{
+const userAxios = axios.create()
+
+userAxios.interceptors.request.use((config) => {
+    const token = localStorage.geItem("token")
+    config.headers.Authorization = `Bearer ${token}`
+    return config
+})
+
+class CartCard extends Component{
     constructor(props){
         super(props)
         this.state={
 
         }
     }
-
-    handleCart = e => {
-        e.preventDefault()
-        this.props.addToCart(this.props.object, this.props.id)
-        
-    }
-        
-    handleClick = e => {
-            e.preventDefault()
-            this.props.updateFavorites(this.props.id)
-    }
     
+    handleDelete = () => {
+        this.props.delteFromCart(this.props.id)
+    }
+
     render(){
-        // console.log(this.props)
+        
         return(
             <Toggle render={({ toggler, modal}) =>
                 <>
@@ -35,7 +37,7 @@ class ItemCard extends Component{
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                         </ModalBody>
                         <ModalFooter>
-                            <Button color="primary" onClick={this.props.handleCart}>Add To Cart</Button>
+                            <Button color="primary" onClick={this.props.handleClick}>Add To Cart</Button>{' '}
                             <Button color="secondary" onClick={this.props.handleClick}>Favorite</Button>
                         </ModalFooter>
                     </Modal>
@@ -47,7 +49,7 @@ class ItemCard extends Component{
                         <p>{this.props.brand}</p>
                         <p>favorited by {this.props.favorites} others</p>
                         <div>
-                            <button onClick={this.handleClick}>Favorite</button>
+                            <button onClick={this.handleDelete}>delete</button>
                             <button onClick={toggler}>check it out</button>
                         </div>
                     
@@ -60,4 +62,4 @@ class ItemCard extends Component{
         }
     }
 
-export default withUser(withInventory(ItemCard))
+export default withUser(withInventory(CartCard))

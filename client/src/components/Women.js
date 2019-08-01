@@ -3,7 +3,7 @@ import {withInventory} from "../context/InventoryProvider.js"
 import ItemCard from './ItemCard.js'
 import Results from "./Results.js";
 
-class Men extends React.Component{
+class Women extends React.Component{
     constructor(props){
         // console.log(props)
         super(props)
@@ -12,16 +12,17 @@ class Men extends React.Component{
         }
     }
     componentDidMount(){
-        this.props.getAllMenInventory(this.props.item)
+        this.props.getAllWomenInventory(this.props.item)
     }
     render(){
     return(
-    <div className = "men">
-        <h1>Shop all of the men Inventory</h1>
+    <div className = "resultsList">
+        <h1>Shop of all the women Inventory</h1>
+        
         {this.props.inventory.map(item => <ItemCard key={item._id} brand={item.brand} image={item.imgUrl} price={item.price} /> )}
     </div>
     )
     }
 }
 
-export default withInventory(Men)
+export default withInventory(Women)

@@ -10,7 +10,6 @@ class Home extends Component {
             gender: "",
             department: "",
             clothingSize: "", 
-            price :"",
             brand: "", 
             array: []  
         }
@@ -27,14 +26,12 @@ class Home extends Component {
             gender: this.state.gender,
             department: this.state.department,
             clothingSize: this.state.clothingSize,
-            price: this.state.price,
             brand: this.state.brand,  
         }
         this.setState(prevState => ({
                 gender: "",
                 department : "",
                 clothingSize : "", 
-                price : "",
                 brand : "",
                 array: [...prevState.array, user]
         }))
@@ -68,17 +65,9 @@ class Home extends Component {
                         <option value="medium"> Medium</option>
                         <option value="large"> Large</option>
                         <option value="x-large"> Extra Large</option>
-                    </select>
-                    <select className="select" name="price" onChange={this.handleChange}>
-                        <option value="none"> - Select a Price - </option>
-                        <option value="0-25"> $0-25 </option> 
-                        <option value="25-50"> $25-50 </option> 
-                        <option value="75-100"> $75-100 </option> 
-                        <option value="100-200"> $100-200 </option> 
-                    </select>      
+                    </select>     
                     <Link to={{pathname: `/results/`, state: {...this.state} }} className="link"> submit </Link>             
                 </form>
-                
             </div> 
             
         )
