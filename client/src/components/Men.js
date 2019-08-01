@@ -1,5 +1,6 @@
 import React from "react"
 import {withInventory} from "../context/InventoryProvider.js"
+import {Link} from "react-router-dom"
 import ItemCard from './ItemCard.js'
 import Results from "./Results.js";
 
@@ -22,9 +23,17 @@ class Men extends React.Component{
             <h2>Men's Fashion</h2>
             <h5>All the most popular retro kicks, outerware, and more</h5>
         </div>
-        This is the men page 
+        <div className="linkContainer">
+        <Link to={{pathname: `/results/`}} className="asLink"> Shop All  </Link> 
+        <Link to={{pathname: `/results/`}} className="asLink"> Men's Accessories </Link> 
+        <Link to={{pathname: `/results/`}} className="asLink"> Men's Socks & Underwear </Link> 
+        <Link to={{pathname: `/results/`}} className="asLink"> Men's Shirts </Link> 
+        <Link to={{pathname: `/results/`}} className="asLink"> Men's Shoes </Link> 
+        <Link to={{pathname: `/results/`}} className="asLink"> Men's Pants </Link>
+        <Link to={{pathname: `/results/`}} className="asLink"> Men's Outerwear </Link>  
+        </div>
         
-        {this.props.inventory.map(item => <ItemCard key={Results._id} brand={item.brand} image={item.imgUrl} price={item.price}/> )}
+       
     </div>
     )
     }
