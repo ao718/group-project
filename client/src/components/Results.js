@@ -17,7 +17,7 @@ class Results extends Component{
         this.props.getAllQueries(this.props.location.state.gender, this.props.location.state.department, this.props.location.state.clothingSize)
        
     }
-    add
+    
     
     render(){
         const user = JSON.parse(localStorage.getItem("user"))
