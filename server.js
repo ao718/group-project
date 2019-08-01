@@ -29,6 +29,7 @@ mongoose.connect('mongodb://localhost:27017/groupprojectdb',
 app.use("/api", expressJwt({secret: process.env.SECRET}))
 app.use('/inventory', require('./routes/inventoryRouter.js'))
 app.use("/auth", require("./routes/authRouter.js"))
+app.use("/api/cart", require("./routes/cartRouter.js"))
 
 
 // Error Handle

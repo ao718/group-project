@@ -38,7 +38,8 @@ class Header extends React.Component{
             </DropdownMenu>
         </Dropdown>
         <h1>Our Store</h1>
-        <FontAwesomeIcon icon={faShoppingCart} color="white" className="cart" size="2x" />
+        <Link to={{pathname: `/cart`, state: {...this.state} }} className="link">        
+            <FontAwesomeIcon icon={faShoppingCart} color="white" className="cart" size="2x" /> </Link>
     </section>
     )
     }
