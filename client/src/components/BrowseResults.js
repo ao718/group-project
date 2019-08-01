@@ -10,7 +10,7 @@ import Footer from "./Footer.js"
 
 class BrowseResults extends Component {
     constructor(props){
-        super()
+        super(props)
     }
     componentDidMount(){
         this.props.getDepartments(this.props.department, this.props.gender)
