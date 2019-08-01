@@ -21,27 +21,27 @@ class Home extends Component {
             [e.target.name] : value
         })
     }
-    // handleSubmit = e => {
-    //     e.preventDefault()
-    //     const user = {
-    //         gender: this.state.gender,
-    //         department: this.state.department,
-    //         clothingSize: this.state.clothingSize,
-    //         price: this.state.price,
-    //         brand: this.state.brand,  
-    //     }
-    //     this.setState(prevState => ({
-    //             gender: "",
-    //             department : "",
-    //             clothingSize : "", 
-    //             price : "",
-    //             brand : "",
-    //             array: [...prevState.array, user]
-    //     }))
-    // }
+    handleSubmit = e => {
+        e.preventDefault()
+        const user = {
+            gender: this.state.gender,
+            department: this.state.department,
+            clothingSize: this.state.clothingSize,
+            price: this.state.price,
+            brand: this.state.brand,  
+        }
+        this.setState(prevState => ({
+                gender: "",
+                department : "",
+                clothingSize : "", 
+                price : "",
+                brand : "",
+                array: [...prevState.array, user]
+        }))
+    }
     render(){
         return(
-
+<>
             <nav role="navigation">
             <div id="menuToggle">
     
@@ -61,7 +61,7 @@ class Home extends Component {
         </ul>
         </div>
         </nav>
-            /* <div className = "home">
+             <div className = "home">
                 <h1> Our title </h1>
                 <form onSubmit={this.handleSubmit} className="form">
                     <select className="select" name="gender" onChange={this.handleChange}> 
@@ -96,12 +96,12 @@ class Home extends Component {
                     <Link to={{pathname: `/results/`, state: {...this.state} }}> submit </Link>             
                 </form>
                 <p className="clothe">Shop for Clothes</p>
-            </div> */
-            
+            </div> 
+            </>
         )
-    }
-}
     
+    }
+}   
 
 
 export default Home 

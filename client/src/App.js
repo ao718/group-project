@@ -1,10 +1,11 @@
 import React from "react"
 import {Switch,Route} from "react-router-dom"
 import Home from "./components/Home.js"
-// import Footer from "./components/Footer.js"
+import Footer from "./components/Footer.js"
 import Men from "./components/Men.js"
 import Header from "./components/Header.js"
 import Results from "./components/Results.js"
+import SideNav from "./components/SideNav.js"
 
 const App = props => {
     return (
@@ -15,7 +16,7 @@ const App = props => {
             <Route path="/men" render = {routerProps => <Men {...routerProps} /> } />
             <Route path="/results" render = {routerProps => <Results {...routerProps} />} />
         </Switch>
-       {/* <Footer/> */}
+       <Footer/>
         </>
     )
 }
