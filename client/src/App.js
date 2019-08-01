@@ -11,6 +11,7 @@ import HotItems from "./components/HotItems.js"
 import Auth from "./components/Auth"
 import Cart from "./components/Cart.js"
 import About from "./components/About.js"
+import Example from "./components/Contact.js"
 // import ProtectedRoute from "./shared/ProtectedRoute.js"
 
 
@@ -25,6 +26,7 @@ const App = props => {
             <Route path="/men" render = {routerProps => <Men {...routerProps} /> } />
             <Route path="/women" render = {routerProps => <Women {...routerProps} />}/>
             <Route path="/about" render= {routerProps => <About {...routerProps} />} />
+            <Route path="/contact" render= {routerProps => <Example {...routerProps} />} />
             <Route path="/results" render = {routerProps => <Results {...routerProps} />} />
             <Route path="/menaccessories" render = {routerProps => <BrowseResults department= "accessories" gender="men" {...routerProps} />} />
             <Route path="/mensocksandunderwear" render = {routerProps => <BrowseResults department= "socksandunderwear" gender="men" {...routerProps} />} />

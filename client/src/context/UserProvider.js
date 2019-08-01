@@ -45,7 +45,8 @@ class UserProvider extends Component {
         userAxios.delete(`/api/cart/${_id}`, {cart: item})
         .then(res => {
             const {user} = res.data
-            this.setState({cart: user.cart})
+            console.log(user)
+            // this.setState({cart: user.cart})
         })
     }
 
