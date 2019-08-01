@@ -21,27 +21,27 @@ class UserProvider extends Component {
 
         }
     }
-    addToCart = (item, id) => {
-        userAxios.put(`/api/cart/${id}`, item)
+    addToCart = (item,id) => {
+        userAxios.put(`/api/cart/${id}`, {cart:[...this.state.cart, item]})
         .then(res => {
             const user = res.data
             this.setState({cart: user.cart})
-            // console.log(user)
+            
         })
         .catch(err => console.log(err))
     }
     getUserCart = (id) => {
         userAxios.get(`/api/cart/${id}`)
         .then(res => {
-            const cart = res.data
-            // console.log(cart)
-            this.setState({cart: [cart]})
-        })
+            const {cart} = res.data
+            console.log(cart)
+            this.setState({cart})
+        } )
         .catch(err => console.log(err))
     }
 
-    deleteFromCart = (id) => {
-        userAxios.put(`/api/cart/${id}`)
+    deleteFromCart = (_id,item) => {
+        userAxios.delete(`/api/cart/${_id}`, {cart: item})
         .then(res => {
             const {user} = res.data
             this.setState({cart: user.cart})
@@ -60,10 +60,11 @@ class UserProvider extends Component {
     }
 
     login = credentials => {
-        axios.post("/auth/signup", credentials)
+        axios.post("/auth/login", credentials)
         .then(res => {
             const { user, token } = res.data
             localStorage.setItem("token", token)
+            console.log(user)
             localStorage.setItem("user", JSON.stringify(user))
             this.setState({ user, token})
         })
@@ -71,7 +72,7 @@ class UserProvider extends Component {
     }
 
     logout = () => {
-        localStorage.removItem("token")
+        localStorage.removeItem("token")
         localStorage.removeItem("user")
         this.setState({token: "", user: {}})
     }

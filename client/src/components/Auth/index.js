@@ -17,7 +17,7 @@ class Auth extends Component {
         this.setState({ [name]: value})
     }
 
-    handleSigupSubmit = e => {
+    handleSignupSubmit = e => {
         e.preventDefault()
         const creds = {
             username: this.state.username,
@@ -40,33 +40,33 @@ class Auth extends Component {
     render(){
         console.log(this.props)
         return(
-    
-            <div className="authForm">
-            {/* <Toggle render={({on, toggler}) => */}
-                { !localStorage.token ?
+            <Toggle render={({on, toggler}) =>
+                <div className="authForm">
+                {/* <Toggle render={({on, toggler}) => */}
+                    { !on ?
 
-                    <>
-                        <AuthForm
-                            username={this.state.username}
-                            password={this.state.password}
-                            handleSubmit={this.handleSigupSubmit}
-                            handleChange={this.handleChange}
-                            buttonText="sign up"/>
+                        <>
+                            <AuthForm
+                                username={this.state.username}
+                                password={this.state.password}
+                                handleSubmit={this.handleSignupSubmit}
+                                handleChange={this.handleChange}
+                                buttonText="sign up"/>
 
-                    </>
-                :    
-                    <>
-                        <AuthForm
-                            username={this.state.username}
-                            password={this.state.password}
-                            handleSubmit={this.handleLogInSubmit}
-                            handleChange={this.handleChange}
-                            buttonText="Log In"/>
-                    </>
-                }
-            {/* }/> */}
-            </div>
-            
+                        </>
+                    :    
+                        <>
+                            <AuthForm
+                                username={this.state.username}
+                                password={this.state.password}
+                                handleSubmit={this.handleLoginSubmit}
+                                handleChange={this.handleChange}
+                                buttonText="Log In"/>
+                        </>
+                    }
+                        <button onClick={toggler}>signup or sign in</button>
+                </div>
+            }/>
         )
     }
 }

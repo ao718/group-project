@@ -20,6 +20,7 @@ const App = props => {
         <Header/>
         <Switch>
             <Route exact path="/" render = {routerProps => <Home {...routerProps}/> }/>
+            <Route path="/loginsignup" render= {routerProps => <Auth {...routerProps}/> }/>
             <Route path="/hotitems" render = {routerProps => <HotItems {...routerProps} /> } />
             <Route path="/men" render = {routerProps => <Men {...routerProps} /> } />
             <Route path="/women" render = {routerProps => <Women {...routerProps} />}/>
@@ -37,7 +38,6 @@ const App = props => {
             <Route path="/womenshirts" render = {routerProps => <BrowseResults department= "shirts" gender="women" {...routerProps} />} />
             <Route path="/womenshoes" render = {routerProps => <BrowseResults department= "shoes" gender="women" {...routerProps} />} />
             <Route path="/womenpants" render = {routerProps => <BrowseResults department= "pants" gender="women" {...routerProps} />} />
-            <Route path="/genderneutral" render = {routerProps => <Auth {...routerProps} />} />
             <Route path="/cart" render = {routerProps => <Cart {...routerProps} />} />
             
             
