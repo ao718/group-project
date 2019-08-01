@@ -11,7 +11,7 @@ class InventoryProvider extends Component {
     }    
 
     getAllMenInventory = () => {
-        axios.get("/inventory/men")
+        axios.get('/inventory/men')
             .then(res => this.setState({inventory: res.data}))
             .catch(err => console.log(err))
     }
@@ -55,8 +55,8 @@ class InventoryProvider extends Component {
         render(){
             return(
                 <InventoryContext.Provider value={{
-                    getMenInventory: this.getMenInventory,
-                    getWomenInventory: this.getWomenInventory,
+                    getAllMenInventory: this.getAllMenInventory,
+                    getAllWomenInventory: this.getAllWomenInventory,
                     inventory:this.state.inventory,
                     getByBrand: this.getByBrand,
                     getAllQueries: this.getAllQueries,

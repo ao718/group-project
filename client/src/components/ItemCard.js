@@ -6,7 +6,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 class ItemCard extends Component{
     constructor(props){
-        super()
+        super(props)
         this.state={
 
         }
@@ -20,8 +20,9 @@ class ItemCard extends Component{
             e.preventDefault()
             this.props.updateFavorites(this.props.id)
     }
+    
     render(){
-        console.log(this.props)
+        // console.log(this.props)
         return(
             <Toggle render={({ toggler, modal}) =>
                 <>
@@ -32,8 +33,8 @@ class ItemCard extends Component{
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                         </ModalBody>
                         <ModalFooter>
-                            <Button color="primary" onClick={this.handleCart}>Add To Cart</Button>{' '}
-                            <Button color="secondary" onClick={this.props.handleCart}>Favorite</Button>
+                            <Button color="primary" onClick={this.props.handleCart}>Add To Cart</Button>
+                            <Button color="secondary" onClick={this.props.handleClick}>Favorite</Button>
                         </ModalFooter>
                     </Modal>
                     <div className="itemCard">

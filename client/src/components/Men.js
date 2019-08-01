@@ -5,7 +5,7 @@ import Results from "./Results.js";
 
 class Men extends React.Component{
     constructor(props){
-        console.log(props)
+        // console.log(props)
         super(props)
         this.state={
 
@@ -13,6 +13,7 @@ class Men extends React.Component{
     }
     componentDidMount(){
         
+        this.props.getAllMenInventory(this.props.item)
     }
     render(){
     return(
