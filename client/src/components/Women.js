@@ -19,7 +19,7 @@ class Women extends React.Component{
     <div className = "resultsList">
         <h1>Shop of all the women Inventory</h1>
         
-        {this.props.inventory.map(item => <ItemCard key={item._id} brand={item.brand} image={item.imgUrl} price={item.price} /> )}
+        {this.props.inventory.map(item => <ItemCard key={item._id} brand={item.brand} image={item.imgUrl} favorites={item.favorites} price={item.price} object={item} /> )}
     </div>
     )
     }

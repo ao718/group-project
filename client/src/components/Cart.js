@@ -13,11 +13,10 @@ class Cart extends Component {
     }
     componentDidMount(){
         this.props.getUserCart(this.props.user._id)
+        this.props.addToCart(this.props.user._id)
         this.setState({userId: this.props.user._id})
     }
-    componentDidMount(){
-        this.props.addToCart(this.props.user._id)
-    }
+   
     
     render(){
         console.log(this.props)
