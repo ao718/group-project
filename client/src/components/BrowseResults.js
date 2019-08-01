@@ -9,18 +9,17 @@ import Toggle from "../shared/toggler.js"
 
 class BrowseResults extends Component {
     constructor(props){
-        super(props)
+        super()
     }
     componentDidMount(){
         this.props.getDepartments(this.props.department, this.props.gender)
       
     }
     componentDidUpdate(prevProps){
-        if(prevProps.department !== this.props.department || prevProps.gender !== this.props.gender || prevProps.favorites !== this.props.favorites){
+        if(prevProps.department !== this.props.department || prevProps.gender !== this.props.gender){
             this.props.getDepartments(this.props.department, this.props.gender)
         }
     }
-    
     
     render(){
        

@@ -161,6 +161,8 @@ inventoryRouter.put('/favorites/:_id', (req, res, next) => {
 
 
 
+
+
 // Post
 inventoryRouter.post('/men', (req, res, next) => {
     const newItem = new Item(req.body)

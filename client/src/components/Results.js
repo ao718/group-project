@@ -23,7 +23,7 @@ class Results extends Component{
        
     const mappedResults = this.props.inventory.map(result => 
           
-            <ItemCard key={result._id} image={result.imgUrl} brand={result.brand}  price={result.price} description={result.description}  favorites={result.favorites} />
+            <ItemCard key={result._id} image={result.imgUrl} brand={result.brand} price={result.price} description={result.description} favorites={result.favorites} />
     
         )
     console.log(this.props)

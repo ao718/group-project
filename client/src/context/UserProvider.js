@@ -21,22 +21,22 @@ class UserProvider extends Component {
 
         }
     }
-    addToCart = (item,id) => {
+    addToCart = (item, id) => {
         userAxios.put(`/api/cart/${id}`, item)
         .then(res => {
             const user = res.data
-            this.setState({cart: [user.cart]})
-            console.log(user)
+            this.setState({cart: user.cart})
+            // console.log(user)
         })
         .catch(err => console.log(err))
     }
     getUserCart = (id) => {
         userAxios.get(`/api/cart/${id}`)
         .then(res => {
-            const {cart} = res.data
-            console.log(cart)
-            this.setState({cart: cart})
-        } )
+            const cart = res.data
+            // console.log(cart)
+            this.setState({cart: [cart]})
+        })
         .catch(err => console.log(err))
     }
 

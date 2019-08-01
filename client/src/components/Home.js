@@ -42,7 +42,7 @@ class Home extends Component {
            
              <div className = "home">
                 <h1> Our title </h1>
-                <p className="clothe">Shop for Clothes</p>
+                <h2 className="clothe">Shop for Clothes</h2>
                 <form onSubmit={this.handleSubmit} className="form">
                     <select className="select" name="gender" onChange={this.handleChange}> 
                         <option value="none"> - Select a Gender - </option>
@@ -55,7 +55,7 @@ class Home extends Component {
                         <option value="pants"> Pants</option>
                         <option value="shoes"> Shoes</option>
                         <option value="accessories"> Accessories</option>
-                        <option value="socks & underwear"> Socks and Underwear</option>
+                        <option value="socksandunderwear"> Socks and Underwear</option>
                         <option value="outerwear"> Outerwear</option>
                     </select>
                     <select className="select" name="clothingSize" onChange={this.handleChange}>

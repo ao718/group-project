@@ -28,7 +28,7 @@ class HotItems extends Component {
             <ItemCard key={result._id} image={result.imgUrl} brand={result.brand} price={result.price} favorites={result.favorites} id={result._id} object={result} />
     
         )
-    console.log(this.props)
+    // console.log(this.props)
     return(
         <Toggle render={({on, toggler}) =>
             <div className="resultsList">

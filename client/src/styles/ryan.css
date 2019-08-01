@@ -19,7 +19,10 @@
     padding: 0px 40px; 
 }
 .clothe {
-    color: white 
+    color: white;
+    display: flex;
+    justify-content: center;
+    
 }
 
 .mapped{
@@ -39,5 +42,5 @@
 .reactButton{
     position: fixed;
     left: 0px;
-    top: 250px;
+    top: 250px
 }

@@ -5,7 +5,7 @@ import CartCard from "./CartCard.js"
 class Cart extends Component {
 
     constructor(props){
-        super ()
+        super (props)
         this.state = {
 
         }
@@ -13,10 +13,14 @@ class Cart extends Component {
     componentDidMount(){
         this.props.getUserCart(this.props.user._id)
     }
+    componentDidMount(){
+        this.props.addToCart(this.props.user._id)
+    }
+    
     render(){
-        console.log(this.props.user._id)
+        // console.log(this.props.user._id)
       const mappedItems =  this.props.user.cart.map(item => 
-                <CartCard key={item._id} image={item.imgUrl} brand={item.brand} price={item.price} favorites={item.favorites} userId={this.props.user._id} />
+                <CartCard key={item._id} image={item.imgUrl} brand={item.brand} price={item.price} favorites={item.favorites} userId={item.id} />
     
             )
         return(

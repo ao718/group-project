@@ -12,7 +12,7 @@ const itemSchema = new Schema ({
     department: {
         type: String,
         required: true,
-        enum: [ 'shirts', 'pants', 'shoes', `accessories`, `socks & underwear`, `outerwear` ]
+        enum: [ 'shirts', 'pants', 'shoes', `accessories`, `socksandunderwear`, `outerwear` ]
     },
 
     clothingSize: {

@@ -4,6 +4,7 @@ import {withUser} from "../context/UserProvider.js"
 import Toggle from "../shared/toggler.js"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import axios from "axios";
+
 const userAxios = axios.create()
 
 userAxios.interceptors.request.use((config) => {
@@ -14,7 +15,7 @@ userAxios.interceptors.request.use((config) => {
 
 class CartCard extends Component{
     constructor(props){
-        super()
+        super(props)
         this.state={
 
         }
