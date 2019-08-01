@@ -32,7 +32,7 @@ cartRouter.get("/:id", (req, res, next) => {
 })
 
 cartRouter.delete(`/:_id/`, (req, res, next) => {
-    Item.findOneAndRemove({_id: req.params._id}, (err, deletedItem) => {
+    Item.findOneAndRemove({_id: req.user._id}, (err, deletedItem) => {
         if(err){
             res.status(500)
             return next(err)

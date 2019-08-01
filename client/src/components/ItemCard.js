@@ -29,7 +29,7 @@ class ItemCard extends Component{
                     <Modal isOpen={modal} toggle={toggler}>
                         <ModalHeader toggle={toggler}>cool stuff</ModalHeader>
                         <ModalBody>
-                            <section><div style={this.props.imgDivStyle}></div><div>{this.props.description}</div></section>
+                            <section style={{height: "50%", width: "50%"}}><div className="modalSubContainer" style={{backgroundImage: `url(${"props.background"})`}}></div><div>{this.props.description}</div></section>
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                         </ModalBody>
                         <ModalFooter>

@@ -41,31 +41,36 @@ class Auth extends Component {
         console.log(this.props)
         return(
             <Toggle render={({on, toggler}) =>
-                <div className="authForm">
-                {/* <Toggle render={({on, toggler}) => */}
-                    { !on ?
+            <main>
+                    <section className="formSection">
+                        <div className="authFormContainer">
+                        {/* <Toggle render={({on, toggler}) => */}
+                            { !on ?
 
-                        <>
-                            <AuthForm
-                                username={this.state.username}
-                                password={this.state.password}
-                                handleSubmit={this.handleSignupSubmit}
-                                handleChange={this.handleChange}
-                                buttonText="sign up"/>
+                                <>
+                                    <AuthForm
+                                        className="authForm"
+                                        username={this.state.username}
+                                        password={this.state.password}
+                                        handleSubmit={this.handleSignupSubmit}
+                                        handleChange={this.handleChange}
+                                        buttonText="sign up"/>
 
-                        </>
-                    :    
-                        <>
-                            <AuthForm
-                                username={this.state.username}
-                                password={this.state.password}
-                                handleSubmit={this.handleLoginSubmit}
-                                handleChange={this.handleChange}
-                                buttonText="Log In"/>
-                        </>
-                    }
-                        <button onClick={toggler}>signup or sign in</button>
-                </div>
+                                </>
+                            :    
+                                <>
+                                    <AuthForm
+                                        username={this.state.username}
+                                        password={this.state.password}
+                                        handleSubmit={this.handleLoginSubmit}
+                                        handleChange={this.handleChange}
+                                        buttonText="Log In"/>
+                                </>
+                            }
+                                <button onClick={toggler}>Dont have an account yet?</button>
+                        </div>
+                    </section>
+                </main>
             }/>
         )
     }

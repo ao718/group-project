@@ -4,6 +4,8 @@ import {Dropdown, DropdownItem, DropdownToggle, DropdownMenu, } from "reactstrap
 import React from "react"
 import {Link} from "react-router-dom"
 import {withUser} from "../context/UserProvider.js"
+import MobileMenu from "./MobileMenu.js"
+import {faBars} from '@fortawesome/free-solid-svg-icons'
 
 class Header extends React.Component{
     constructor(props) {
@@ -22,7 +24,9 @@ class Header extends React.Component{
     render(){
         const {logout} = this.props
     return(
+    <>
     <section className="header">
+    {/* <FontAwesomeIcon onClick={this.toggle} icon={faBars} color="white" className="cart" size="2x" /> */}
         <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
             <DropdownToggle caret>
             Menu
@@ -44,8 +48,11 @@ class Header extends React.Component{
         </Dropdown>
         <h1>Our Store</h1>
         <Link to={{pathname: `/cart`, state: {...this.state} }} className="link">        
-            <FontAwesomeIcon icon={faShoppingCart} color="white" className="cart" size="2x" /> </Link>
+            <FontAwesomeIcon icon={faShoppingCart} color="white" className="cart" /> </Link>
     </section>
+    {/* <MobileMenu style={!this.state.dropdownOpen? {left: "-390px"} : {left: "0px"}}></MobileMenu> */}
+    
+    </>
     )
     }
 }
