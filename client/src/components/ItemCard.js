@@ -13,7 +13,7 @@ class ItemCard extends Component{
     }
 
     handleCart = () => {
-        this.props.addToCart(this.props.object,this.props.userId)
+        this.props.addToCart(this.props.object,this.props.user._id)
     }
         
     handleClick = e => {

@@ -12,11 +12,15 @@ class Men extends React.Component{
         }
     }
     componentDidMount(){
-        this.props.getByBrand("")
+        
     }
     render(){
     return(
     <div className = "men">
+        <div className="heroHeader">
+            <h2>Men's Fashion</h2>
+            <h5>All the most popular retro kicks, outerware, and more</h5>
+        </div>
         This is the men page 
         
         {this.props.inventory.map(item => <ItemCard key={Results._id} brand={item.brand} image={item.imgUrl} price={item.price}/> )}

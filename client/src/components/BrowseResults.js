@@ -23,12 +23,16 @@ class BrowseResults extends Component {
     
     
     render(){
+        console.log(this.props)
+        const user = JSON.parse(localStorage.getItem("user"))
+        const userId = user._id
+        
        
-    const mappedResults = this.props.inventory.map(result => 
-            <ItemCard key={result._id} image={result.imgUrl} brand={result.brand} price={result.price} favorites={result.favorites} id={result._id} object={result}  />
+    const mappedResults = this.props.inventory.map(result => {
+            console.log(result)
+           return <ItemCard key={result._id} image={result.imgUrl} brand={result.brand} price={result.price} favorites={result.favorites} id={result._id} object={result}  />
     
-        )
-    console.log(this.props)
+    })
     return(
         <Toggle render={({on, toggler}) =>
             <div className="resultsList">
