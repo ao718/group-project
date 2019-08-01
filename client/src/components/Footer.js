@@ -5,7 +5,7 @@
 // const plugins = [CSSPlugin, ScrollToPlugin] 
 import React, { Component } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faTwitter, faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons'
+import { faTwitter, faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons'
 
 class Footer extends Component {
     constructor(){
@@ -52,11 +52,11 @@ class Footer extends Component {
                     <button id = 'submit'> Subscribe </button>
                 </form>
                 <p id= "aosubscribe"> </p>
-                {/* <div className= 'aa'>
-                    <a href="#"><FontAwesomeIcon icon = {faTwitter}/> </a>
+                <div className= 'aa'>
+                    <a href="facebook.com"><FontAwesomeIcon icon = {faTwitter}/> </a>
                     <a href="#"><FontAwesomeIcon icon = {faInstagram}/> </a>
-                    <a href="#"><FontAwesomeIcon icon = {faFacebook}/> </a>
-                </div> */}
+                    <a href="#"><FontAwesomeIcon icon = {faFacebook} /> </a>
+                </div>
             </div>
         )
     }

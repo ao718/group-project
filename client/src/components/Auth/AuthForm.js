@@ -5,7 +5,7 @@ const AuthForm = props => {
     console.log(props)
     return(
     
-        <form onSubmit={handleSubmit}>
+        <form  className={props.className} onSubmit={handleSubmit}>
             <input
                 type="text"
                 name="username"

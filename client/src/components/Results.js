@@ -4,6 +4,7 @@ import ItemCard from "./ItemCard.js"
 import SideNav from "./SideNav.js"
 import BrowseButton from "./BrowseButton.js"
 import Toggle from "../shared/toggler.js"
+import Footer from "./Footer.js"
 
 
 class Results extends Component{
@@ -31,12 +32,15 @@ class Results extends Component{
     console.log(this.props)
     return(
         <Toggle render={({on, toggler}) =>
-            <div className="resultsList">
-                <SideNav handleClick={toggler} style={{left: on? "0px" : "-150px"}}></SideNav>
-                
-                {mappedResults}
-                <BrowseButton style={{left: on? "-75px" : "-8px"}} onClick={toggler}></BrowseButton>
-            </div>
+            <main>
+                <div className="resultsList">
+                    <SideNav handleClick={toggler} style={{left: on? "0px" : "-150px"}}></SideNav>
+                    
+                    {mappedResults}
+                    <BrowseButton style={{left: on? "-75px" : "-8px"}} onClick={toggler}></BrowseButton>
+                </div>
+                <Footer></Footer>
+            </main>    
         }/>
     )
     }
