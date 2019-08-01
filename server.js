@@ -4,6 +4,7 @@ const morgan = require('morgan')
 const mongoose = require('mongoose')
 require("dotenv").config()
 const PORT = process.env.PORT || 7000
+const expressJwt = require("express-jwt")
 
 
 // Middleware
@@ -25,12 +26,18 @@ mongoose.connect('mongodb://localhost:27017/groupprojectdb',
 
 
 // Routes
+app.use("/api", expressJwt({secret: process.env.SECRET}))
 app.use('/inventory', require('./routes/inventoryRouter.js'))
+app.use("/auth", require("./routes/authRouter.js"))
 
 
 // Error Handle
 app.use((err, req, res, next) => {
     console.log(err)
+
+    if(err.name === "unauthorizedError"){
+        res.status(err.status)
+    }
     return res.send({errMsg: err.message})
 })
 

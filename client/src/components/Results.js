@@ -5,6 +5,7 @@ import SideNav from "./SideNav.js"
 import BrowseButton from "./BrowseButton.js"
 import Toggle from "../shared/toggler.js"
 
+
 class Results extends Component{
     constructor(props){
         super()
@@ -16,11 +17,13 @@ class Results extends Component{
         this.props.getAllQueries(this.props.location.state.gender, this.props.location.state.department, this.props.location.state.clothingSize)
        
     }
+    add
     
     render(){
        
     const mappedResults = this.props.inventory.map(result => 
-            <ItemCard key={result._id} image={result.imgUrl} brand={result.brand} price={result.price} clothingSize={result.clothingSize} favorites={result.favorites} />
+          
+            <ItemCard key={result._id} image={result.imgUrl} brand={result.brand}  price={result.price} description={result.description}  favorites={result.favorites} />
     
         )
     console.log(this.props)

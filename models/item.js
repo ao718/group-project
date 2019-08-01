@@ -43,6 +43,11 @@ const itemSchema = new Schema ({
     description: {
         type: String,
         default: ""
+    },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+        required: true
     }
     
 })
