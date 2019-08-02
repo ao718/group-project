@@ -36,17 +36,15 @@ class Results extends Component{
     })
     console.log(this.props)
     return(
-        <Toggle render={({on, toggler}) =>
+
             <main>
                 <div className="resultsList">
-                    <SideNav handleClick={toggler} style={{left: on? "0px" : "-150px"}}></SideNav>
                     
                     {mappedResults}
-                    <BrowseButton style={{left: on? "-75px" : "-8px"}} onClick={toggler}></BrowseButton>
                 </div>
                 <Footer></Footer>
             </main>    
-        }/>
+    
     )
     }
 }
