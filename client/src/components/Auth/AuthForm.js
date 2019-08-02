@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react'
 
 const AuthForm = props => {
     const {username, password, handleChange, handleSubmit, buttonText} = props
@@ -7,17 +7,18 @@ const AuthForm = props => {
     
         <form  className={props.className} onSubmit={handleSubmit}>
             <input
-                type="text"
-                name="username"
-                onChange={handleChange}
-                value= {username} ></input>
-            <input
-                type="text"
-                name="password"
-                onChange={handleChange}
-                value= {password} ></input>
+             type = 'text'
+             name = 'username'
+             value = {username}
+             onChange = {handleChange}
+             placeholder = 'Username' />
+        <input 
+            type = 'text'
+            name = 'password'
+            value = {password}
+            onChange = {handleChange}
+            placeholder = 'Password' />
             <button>{buttonText}</button>
-            
         </form>
     )
 }
