@@ -13,10 +13,6 @@ class Cart extends Component {
     }
     componentDidMount(){
         this.props.getUserCart(this.props.user._id)
-<<<<<<< HEAD
-        this.props.addToCart(this.props.user._id)
-=======
->>>>>>> master
         this.setState({userId: this.props.user._id})
     }
    
@@ -30,7 +26,9 @@ class Cart extends Component {
         return(
 
             <div className="resultsList">
+                <h1 className="carted">Your Cart</h1>
                 {mappedItems}
+               
             </div>
         )
     }
