@@ -1,11 +1,12 @@
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {Dropdown, DropdownItem, DropdownToggle, DropdownMenu, } from "reactstrap"
 import React from "react"
 import {Link} from "react-router-dom"
 import {withUser} from "../context/UserProvider.js"
 import MobileMenu from "./MobileMenu.js"
 import {faBars} from '@fortawesome/free-solid-svg-icons'
+import {faSearch} from '@fortawesome/free-solid-svg-icons'
+import {faAirFreshener} from '@fortawesome/free-solid-svg-icons'
 
 class Header extends React.Component{
     constructor(props) {
@@ -25,32 +26,26 @@ class Header extends React.Component{
         const {logout} = this.props
     return(
     <>
-    <section className="header">
-    {/* <FontAwesomeIcon onClick={this.toggle} icon={faBars} color="white" className="cart" size="2x" /> */}
-        <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-            <DropdownToggle caret>
-            Menu
-            </DropdownToggle>
-            <DropdownMenu>
-                <DropdownItem header>Fashion</DropdownItem>
-                <DropdownItem tag={Link} to="/men">Men</DropdownItem>
-                <DropdownItem tag={Link} to="/women">Women</DropdownItem>
-                <DropdownItem tag={Link} to="/hotitems">Hot Items</DropdownItem>
-                <DropdownItem tag={Link} to="/sales">On Sale</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem tag={Link} to="/">Home</DropdownItem>
-                <DropdownItem tag={Link} to="/about">About</DropdownItem>
-                <DropdownItem tag={Link} to="/contact">Contact</DropdownItem>
-                <DropdownItem tag={Link} to="/loginsignup" >Log In/Sign Up</DropdownItem>
-                {localStorage.token && <DropdownItem onClick={logout}>Log Out</DropdownItem>}
-
-            </DropdownMenu>
-        </Dropdown>
-        <h1>Our Store</h1>
-        <Link to={{pathname: `/cart`, state: {...this.state} }} className="link">        
-            <FontAwesomeIcon icon={faShoppingCart} color="white" className="cart" /> </Link>
+    <section style={{height: "10vh", width: "100vw", position: "fixed", zIndex: "6"}}>
+        <div className="headerTop">
+            <FontAwesomeIcon icon={faAirFreshener} color="bronze"  size="2x" />
+            <h6>OurName</h6>
+            <div style={{ position: "relative", right: "-57px", top:"0px", backgroundImage: `url(${"https://image.flaticon.com/icons/svg/206/206626.svg"})`, backgroundPosition: "center", backgroundSize: "cover", height: "100%", width: "30px"}}></div>
+            <FontAwesomeIcon rotation={90} icon={faSearch} color="bronze"  size="s" />
+        </div>
+        <div className="header">
+            <FontAwesomeIcon onClick={this.toggle} icon={faBars} color="white" className="burger" size="2x" />
+            <FontAwesomeIcon icon={faAirFreshener} color="gold"  size="2x" className="burger" />
+            <Link to={{pathname: `/`, state: {...this.state} }} className="asMenuLink">Home</Link>
+            <Link to={{pathname: `/men`, state: {...this.state} }} className="asMenuLink">Men</Link>
+            <Link to={{pathname: `/women`, state: {...this.state} }} className="asMenuLink">Women</Link>
+            <Link onClick={localStorage.token && logout} to={{pathname: localStorage.token? "/" : "/loginsignup"}} className="asMenuLink">{localStorage.token? "Logout" : "Login"}</Link>
+            <Link to={{pathname: `/cart`, state: {...this.state} }} className="cart">        
+                <FontAwesomeIcon icon={faShoppingCart} color="white" className="cart" size="2x" /> </Link>
+        </div>
+  
     </section>
-    {/* <MobileMenu style={!this.state.dropdownOpen? {left: "-390px"} : {left: "0px"}}></MobileMenu> */}
+    <MobileMenu onClick={this.toggle} style={!this.state.dropdownOpen? {left: "-390px"} : {left: "0px"}}></MobileMenu>
     
     </>
     )

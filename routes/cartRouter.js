@@ -31,14 +31,22 @@ cartRouter.get("/:id", (req, res, next) => {
     })
 })
 
-cartRouter.delete(`/:_id/`, (req, res, next) => {
-    Item.findOneAndRemove({_id: req.user._id}, (err, deletedItem) => {
-        if(err){
-            res.status(500)
-            return next(err)
-        }
-        return res.status(202).send({ cart: deletedItem, msg: `Successfully Deleted ${deletedItem}`})
-    })
+cartRouter.put(`/`, async(req, res, next) => {
+    const{cart: removeItem} = req.body
+    try{
+        const user = await User.findOne({_id: req.user._id})
+        const updatedUser = await User.findOneAndUpdate(
+            {_id: req.user._id},
+            {cart: user.cart.filter(item => item._id !== removeItem._id)},
+            {new: true}
+        )
+        return res.status(201).send(updatedUser)
+    }
+    catch(err){
+        res.status(500)
+        return next(err)
+    }
+      
 })
 
 

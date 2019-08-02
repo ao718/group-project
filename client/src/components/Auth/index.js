@@ -2,6 +2,7 @@ import React, {Component} from "react"
 import AuthForm from "./AuthForm.js"
 import { withUser } from "../../context/UserProvider.js"
 import Toggle from "../../shared/toggler.js"
+import Footer from "../../components/Footer.js"
 
 
 class Auth extends Component {
@@ -43,6 +44,10 @@ class Auth extends Component {
         return(
             <Toggle render={({on, toggler}) =>
             <main>
+                <div style={{opacity:".8", backgroundImage: `url(${"https://images.unsplash.com/photo-1489414590815-e84cbd8072f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"})`}} className="heroHeader">
+                    <h2 className="loginHeaderText">Get in the loop </h2>
+                    <h5 className="loginHeaderText">make an account today</h5>
+                </div>
                     <section className="formSection">
                         <div className="authFormContainer">
                         {/* <Toggle render={({on, toggler}) => */}
@@ -61,6 +66,7 @@ class Auth extends Component {
                             :    
                                 <>
                                     <AuthForm
+                                        className="authForm"
                                         username={this.state.username}
                                         password={this.state.password}
                                         handleSubmit={this.handleLoginSubmit}
@@ -68,9 +74,10 @@ class Auth extends Component {
                                         buttonText="Log In"/>
                                 </>
                             }
-                                <button onClick={toggler}>Dont have an account yet?</button>
+                                <div style={{paddingBottom: "10px;", display: "flex", alignItems: "center"}}><p className="noAccount" style={{fontSize: "2em" , fontWeight: "600", color: "aquamarine" }}>Not have an account yet? No worries!</p><button className="cardButton" onClick={toggler}>Click to sign up</button></div>
                         </div>
                     </section>
+                <Footer></Footer>
                 </main>
             }/>
         )

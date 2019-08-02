@@ -142,7 +142,7 @@ inventoryRouter.put(`/favorites/:_id`, (req, res, next) => {
     Item.findOneAndUpdate(
         {_id: req.params._id}, 
         {$inc:{favorites: 1 }},
-        {newItem: true},
+        {new: true},
         (err, updatedItem) => {
             if(err){
                 res.status(500)

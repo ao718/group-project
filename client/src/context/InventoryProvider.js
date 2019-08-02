@@ -41,9 +41,12 @@ class InventoryProvider extends Component {
             .then(res => this.setState({inventory: res.data}))
             .catch(err => console.log(err))
     }
-    updateFavorites = (id) => {
-        axios.put(`/inventory/favorites/${id}`)
-            .then(res => console.log("itUpdated"))
+    updateFavorites = (_id) => {
+        axios.put(`/inventory/favorites/${_id}`)
+            // 
+            .then(res => this.setState(prevState => ({
+                inventory: prevState.inventory.map(item => item._id === _id ? res.data : item) 
+            })))
             .catch(err => console.log(err))
     }
     getFavorites = () => {
@@ -51,6 +54,7 @@ class InventoryProvider extends Component {
             .then(res => this.setState({inventory: res.data}))
             .catch(err => console.log(err))
     }
+
 
         render(){
             return(

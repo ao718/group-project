@@ -29,11 +29,9 @@ class Men extends React.Component{
         <Link to={{pathname: `/menshirts/`}} className="asLink"> Men's Shirts </Link> 
         <Link to={{pathname: `/menshoes/`}} className="asLink"> Men's Shoes </Link> 
         <Link to={{pathname: `/menpants/`}} className="asLink"> Men's Pants </Link>
-<<<<<<< HEAD
-        <Link to={{pathname: `/menouterwear/`}} className="asLink"> Men's Outerwear </Link>
-=======
+
         <Link to={{pathname: `/menouterwear/`}} className="asLink"> Men's Outerwear </Link>  
->>>>>>> master
+
         </div>
         
         {this.props.inventory.map(item => <ItemCard key = {Results._id} 
