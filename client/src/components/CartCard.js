@@ -22,7 +22,7 @@ class CartCard extends Component{
     }
     
     handleDelete = () => {
-        this.props.deleteFromCart(this.props.user._id, this.props.id )
+        this.props.deleteFromCart(this.props.item )
     }
     
 
@@ -50,8 +50,8 @@ class CartCard extends Component{
                         <p>{this.props.brand}</p><span style={{display: "none"}}>{this.props.id}</span>
                         <p>favorited by {this.props.favorites} others</p>
                         <div>
-                            <button onClick={this.handleDelete}>delete</button>
-                            <button onClick={toggler}>check it out</button>
+                            <button className="cardButton" onClick={this.handleDelete}>delete</button>
+                            <button className="cardButton" onClick={toggler}>check it out</button>
                         </div>
                     
                     </div>

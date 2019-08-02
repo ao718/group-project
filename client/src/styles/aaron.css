@@ -6,16 +6,22 @@
 
 .header{
     width: 100%;
-    height: 10vh;
-    position: fixed;
+    height: 60%;
+    position: absolute;
     background-color: black;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items:center;
     padding-bottom: 0;
-    z-index: 5;
-    margin-bottom: 50px !important;
+    box-shadow: 0px 17px 10px -10px rgba(0,0,0,0.4);
     
+}
+.headerTop{
+    height: 40%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
 }
 
 .heroHeader > h2, h5{
@@ -23,11 +29,13 @@
     margin-top: 40px !important;
 }
 
-a:hover {
-  color: tomato;
-}
 .cart{
-    border: 1px slategray ridge;
+    margin-left: 7px;
+}
+.cart:hover{
+    color:#A79344;
+    font-size: 1.7em;
+    transition: all ease-in-out 300ms;
 }
 
 #menuToggle {
@@ -49,6 +57,18 @@ a:hover {
     margin: auto !important;
     margin-top: 100px !important;
 }
+.cardButton{
+    margin: 5px;
+    border: 4px #A79344 ridge;
+    border-radius: 6px;
+    box-shadow: 0px 17px 10px -10px rgba(0,0,0,0.4);
+    cursor: pointer;
+    transition: all ease-in-out 300ms;
+}
+.cardButton:hover{
+    box-shadow: 0px 37px 20px -20px rgba(0,0,0,0.2);
+    transform: translate(0px, -10px) scale(1.2);
+}
 .imageContainer{
     height: 150px;
     width: 200px;
@@ -67,31 +87,9 @@ a:hover {
     
 }
 
-.sideNav{
-    position: fixed;
-    /* left: -150px; */
-    top: 100px;
-    height: 500px;
-    width: 150px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    border: 2px slategray ridge;
-    
-}
-.sideNav > div{
-    border-bottom: 2px slategray ridge;
-}
-.browseButton{
-    height: 120px;
-    width: 75px;
-    border: 2px gray inset;
-    border-radius: 8px;
-    position: fixed;
-    top: 200px;
-    font-size: .8em
-}
+
+
+
 .displayNone{
     display: none;
 }
@@ -136,6 +134,13 @@ a:hover {
     margin-left: 20px;
     color: white;
     font-size: 1.2em;
+    transition: all ease-in-out 300ms;
+}
+.asLink:hover{
+    color:#A79344;
+    font-size: 1.5em;
+    text-decoration: none;
+    transition: all ease-in-out 300ms;
 }
 .modalSubContainer{
     height: 100%;
@@ -153,11 +158,20 @@ a:hover {
     align-items: center;
     justify-content: space-evenly;
     background-color: #242222;
-    opacity: .8;
+    opacity: .9;
     color: white;
+    padding-top: 25px;
+    transition: left 1s ease-in-out;
 }
 .asMenuLink{
     color: white;
+    transition: all ease-in-out 300ms;
+}
+.asMenuLink:hover{
+    color:#A79344;
+    font-size: 1.5em;
+    text-decoration: none;
+
 }
 
 .formSection{
@@ -166,20 +180,73 @@ a:hover {
     background-position: center center;
     height: 700px;
     width:100vw;
+    position: absolute;
 }
 .authFormContainer{
-    padding-top: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    position: relative;
+    z-index: 0;
 }
 .authForm{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    /* position: absolute; */
+    top: 450px;
+
 }
 .authForm > input{
-    border: orangered 4px inline;
+    border: 5px #A79344 solid;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background:grey, transparent;
+    height: 4em;
+    width: 20em;
+    box-shadow: 0px 17px 10px -10px rgba(0,0,0,0.4);;
+}
+.noAccount{
+ 
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+                    0px 8px 13px rgba(0,0,0,0.1),
+                    0px 18px 23px rgba(0,0,0,0.1);
+                
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+
+}
+.burger{
+    display:none;
+    color: white;
+}
+.navLink{
+    color: white;
+}
+h6{
+    font-style: italic;
+    padding-top:5px;
+}
+.loginHeaderText{
+    z-index: 5;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+@media only screen and (min-width: 700px){
+    .resultsList{
+        grid-template-columns: repeat(2,1fr);
+    }
+    .burger{
+        display: block;
+       
+    }
+    .headerTop{
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 1000px){
+    .resultsList{
+        grid-template-columns: repeat(3,1fr);
+    }
 }

@@ -40,13 +40,12 @@ class UserProvider extends Component {
         .catch(err => console.log(err))
     }
 
-    deleteFromCart = (_id,item) => {
-        userAxios.delete(`/api/cart/${_id}`, {cart: item})
+    deleteFromCart = (item) => {
+        userAxios.put(`/api/cart/`, {cart: item})
         .then(res => {
-            const {user} = res.data
-            console.log(user)
-            // this.setState({cart: user.cart})
+            this.setState({cart: res.data.cart})
         })
+        .catch(err => console.log(err))
     }
 
     signup = credentials => {

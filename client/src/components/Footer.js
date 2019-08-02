@@ -42,7 +42,7 @@ class Footer extends Component {
 
         return(
             <div className = 'aofooter'>
-
+                <h2 style={{color: "white"}}>Join our mailing list</h2>
                 <form className= 'aoform' onSubmit = {this.handleSubmit}>
                     <input className = 'aoinput' type="text" 
                            name="email" 

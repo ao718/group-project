@@ -25,13 +25,13 @@ class Men extends React.Component{
             <h5>All the most popular retro kicks, outerware, and more</h5>
         </div>
         <div className="linkContainer">
-        <Link to={{pathname: `/results/`}} className="asLink"> Shop All  </Link> 
-        <Link to={{pathname: `/results/`}} className="asLink"> Men's Accessories </Link> 
-        <Link to={{pathname: `/results/`}} className="asLink"> Men's Socks & Underwear </Link> 
-        <Link to={{pathname: `/results/`}} className="asLink"> Men's Shirts </Link> 
-        <Link to={{pathname: `/results/`}} className="asLink"> Men's Shoes </Link> 
-        <Link to={{pathname: `/results/`}} className="asLink"> Men's Pants </Link>
-        <Link to={{pathname: `/results/`}} className="asLink"> Men's Outerwear </Link>  
+        <Link to={{pathname: `/allmen/`}} className="asLink"> Shop All  </Link> 
+        <Link to={{pathname: `/menaccessories/`}} className="asLink"> Men's Accessories </Link> 
+        <Link to={{pathname: `/mensocksandunderwear/`}} className="asLink"> Men's Socks & Underwear </Link> 
+        <Link to={{pathname: `/menshirts/`}} className="asLink"> Men's Shirts </Link> 
+        <Link to={{pathname: `/menshoes/`}} className="asLink"> Men's Shoes </Link> 
+        <Link to={{pathname: `/menpants/`}} className="asLink"> Men's Pants </Link>
+        <Link to={{pathname: `/menouterwear/`}} className="asLink"> Men's Outerwear </Link>  
         </div>
         <Footer></Footer>
        
