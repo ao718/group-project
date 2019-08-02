@@ -3,7 +3,7 @@ import {withInventory} from "../context/InventoryProvider.js"
 import ItemCard from './ItemCard.js'
 import Results from "./Results.js";
 
-class Men extends React.Component{
+class AllMen extends React.Component{
     constructor(props){
         // console.log(props)
         super(props)
@@ -30,4 +30,4 @@ class Men extends React.Component{
     }
 }
 
-export default withInventory(Men)
+export default withInventory(AllMen)

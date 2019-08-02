@@ -32,7 +32,9 @@ class Cart extends Component {
         return(
 
             <div className="resultsList">
+                <h1 className="carted">Your Cart</h1>
                 {mappedItems}
+               
             </div>
         )
     }
