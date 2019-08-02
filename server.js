@@ -6,16 +6,16 @@ const mongoose = require('mongoose')
 require("dotenv").config()
 const PORT = process.env.PORT || 7000
 const expressJwt = require('express-jwt')
-
+const path = require("path")
 
 // Middleware
 app.use(morgan('dev'))
 app.use(express.json())
-
+app.use(express.static(path.join(__dirname, "client", "build")))
 
 
 // Connection to DB
-mongoose.connect('mongodb://localhost:27017/groupprojectdb', 
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/groupprojectdb', 
 {
     useNewUrlParser: true,
     useFindAndModify: false,
@@ -41,6 +41,10 @@ app.use((err, req, res, next) => {
         res.status(err.status)
     }
     return res.send({ message: err.message })
+})
+
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"))
 })
 
 // Server listen
