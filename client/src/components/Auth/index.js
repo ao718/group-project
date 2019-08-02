@@ -1,6 +1,6 @@
 import React, {Component} from "react"
 import AuthForm from "./AuthForm.js"
-import {withUser } from "../../context/UserProvider.js"
+import { withUser } from "../../context/UserProvider.js"
 import Toggle from "../../shared/toggler.js"
 import Footer from "../../components/Footer.js"
 
@@ -14,8 +14,8 @@ class Auth extends Component {
         }
     }
     handleChange = e => {
-        const {name, value} = e.target
-        this.setState({ [name]: value})
+        const { name, value } = e.target
+        this.setState({ [name]: value })
     }
 
     handleSignupSubmit = e => {
@@ -23,10 +23,11 @@ class Auth extends Component {
         const creds = {
             username: this.state.username,
             password: this.state.password,
-            
         }
+
         this.props.signup(creds)
     }
+
 
     handleLoginSubmit = e => {
         e.preventDefault()

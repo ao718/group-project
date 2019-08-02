@@ -1,4 +1,4 @@
-import React, {Component} from "react"
+import React, { Component } from "react"
 import axios from "axios"
 const UserContext = React.createContext()
 
@@ -17,7 +17,8 @@ class UserProvider extends Component {
             user: JSON.parse(localStorage.getItem("user")) || {},
             token: "",
             cart: [],
-            favorites: []
+            favorites: [],
+            AuthErrMsg: ""
 
         }
     }
@@ -30,7 +31,7 @@ class UserProvider extends Component {
         })
         .catch(err => console.log(err))
     }
-    getUserCart = (id) => {
+    getUserCart = (item, id) => {
         userAxios.get(`/api/cart/${id}`)
         .then(res => {
             const {cart} = res.data
@@ -70,6 +71,11 @@ class UserProvider extends Component {
         })
         .catch(err => console.log(err))
     }
+
+    handleAuthErr = errMsg => {
+        this.setState({AuthErrMsg: errMsg})
+    }
+
 
     logout = () => {
         localStorage.removeItem("token")

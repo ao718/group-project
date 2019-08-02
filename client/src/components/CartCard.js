@@ -1,6 +1,6 @@
 import React, {Component} from "react"
-import {withInventory} from "../context/InventoryProvider.js"
-import {withUser} from "../context/UserProvider.js"
+import { withInventory } from "../context/InventoryProvider.js"
+import { withUser } from "../context/UserProvider.js"
 import Toggle from "../shared/toggler.js"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import axios from "axios";

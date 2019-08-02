@@ -9,13 +9,17 @@ import Footer from "./Footer.js"
 
 class Results extends Component{
     constructor(props){
-        super()
+        super(props)
         this.state = {
             results: []
         }
     }
     componentDidMount(){
-        this.props.getAllQueries(this.props.location.state.gender, this.props.location.state.department, this.props.location.state.clothingSize)
+        this.props.getAllQueries(
+            this.props.location.state.gender, 
+            this.props.location.state.department, 
+            this.props.location.state.clothingSize
+            )
        
     }
     
@@ -23,6 +27,7 @@ class Results extends Component{
     render(){
         const user = JSON.parse(localStorage.getItem("user"))
         const userId = user._id
+        
        
     const mappedResults = this.props.inventory.map(result => {
           

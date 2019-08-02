@@ -7,14 +7,12 @@ import Results from "./Results.js";
 
 class Men extends React.Component{
     constructor(props){
-        // console.log(props)
         super(props)
         this.state={
 
         }
     }
     componentDidMount(){
-        
         this.props.getAllMenInventory(this.props.item)
     }
     render(){
@@ -31,8 +29,17 @@ class Men extends React.Component{
         <Link to={{pathname: `/menshirts/`}} className="asLink"> Men's Shirts </Link> 
         <Link to={{pathname: `/menshoes/`}} className="asLink"> Men's Shoes </Link> 
         <Link to={{pathname: `/menpants/`}} className="asLink"> Men's Pants </Link>
+
         <Link to={{pathname: `/menouterwear/`}} className="asLink"> Men's Outerwear </Link>  
+
         </div>
+        
+        {this.props.inventory.map(item => <ItemCard key = {Results._id} 
+                                                    favorites = {item.favorites} 
+                                                    brand = {item.brand} 
+                                                    image = {item.imgUrl} 
+                                                    price = {item.price} 
+                                                    Object = {item}/> )}
         <Footer></Footer>
        
     </div>
